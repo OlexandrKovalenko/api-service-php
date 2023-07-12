@@ -5,8 +5,8 @@ return [
         'controller' => 'main',
         'action' => 'index'
     ],
-    'account/login' => [
-        'controller' => 'account',
+    'login' => [
+        'controller' => 'auth',
         'action' => 'login'
     ],
     'terminals' => [

@@ -2,6 +2,8 @@
 
 namespace App\Core;
 
+use App\Core\View;
+
 class Router {
 
     protected $subDomain = '/cus-services/';
@@ -22,8 +24,8 @@ class Router {
     }
 
     function match() {
-        //$url = trim($_SERVER['REQUEST_URI'], '/');
-        $url = str_replace($this->subDomain, '', $_SERVER['REQUEST_URI']);
+        $url = trim($_SERVER['REQUEST_URI'], '/');
+        //$url = str_replace($this->subDomain, '', $_SERVER['REQUEST_URI']);
 
         foreach ($this->routes as $route => $params) {
             
@@ -37,16 +39,23 @@ class Router {
 
     function run() {
         if ($this->match()) {
-            $controller = 'App\\Controllers\\'.ucfirst($this->params['controller']).'Controller.php';
-            if(class_exists($controller)) {
-                //
+            $path = 'App\\Controllers\\'.ucfirst($this->params['controller']).'Controller';
+            if(class_exists($path)) {
+                $action = $this->params['action'] . 'Action';
+                if (method_exists($path, $action)) {
+                    $controller = new $path($this->params);
+                    $controller->$action();
+                }
+                else {
+                    View::errorCode(404);
+                }
             }
             else {
-                echo 'Not found: ' . $controller;
+                View::errorCode(404);
             }
         }
         else {
-            echo '404 Not found!';
+            View::errorCode(404);
         }
     }
 
