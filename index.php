@@ -1,7 +1,8 @@
 <?php
-require 'App/lib/Dev.php';
+require 'WebApp/lib/Dev.php';
+require __DIR__ . '/vendor/autoload.php';
 
-use App\Core\Router;
+use WebApp\Core\Router;
 
 spl_autoload_register(function ($class) {
 	$path = str_replace('\\', '/', $class.'.php');
