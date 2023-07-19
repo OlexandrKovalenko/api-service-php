@@ -1,6 +1,6 @@
 <div class="login-wrapper d-flex align-items-center py-4 bg-body-tertiary">
     <main class="form-signin w-100 m-auto bg-warning-subtle">
-      <form action="/login" method="post">
+      <form action="login/authorize" method="post">
         <img class="mb-4" src="#" alt="" width="72" height="57">
         <h1 class="h3 mb-3 fw-normal">Вхід</h1>
     

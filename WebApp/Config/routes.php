@@ -9,6 +9,10 @@ return [
         'controller' => 'auth',
         'action' => 'login'
     ],
+    'login/authorize' => [
+        'controller' => 'auth',
+        'action' => 'authorize'
+    ],
     'terminals' => [
         'controller' => 'terminals',
         'action' => 'terminals'

@@ -5,6 +5,8 @@ use WebApp\Core\Controller;
 use WebApp\Services\ApiServices;
 use WebApp\Services\ValidateService;
 
+
+
 class AuthController extends Controller {
 
     function before() {
@@ -20,14 +22,39 @@ class AuthController extends Controller {
             } else {
                 $api = new ApiServices();
                 if(!empty($api->authorize(['email' => $_POST['email'], 'password' => $_POST['password']]))) {
-                    $this->token = empty($api->authorize(['email' => $_POST['email'], 'password' => $_POST['password']]));
-                    
+                    $this->token = $api->authorize(['email' => $_POST['email'], 'password' => $_POST['password']]);
+                    debug($this->token);
                 }
             }
-
-
-
         }
         $this->view->render('Увійти');
+    }
+
+    function authorizeAction() {
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $user = $this->model->get(['email' => $email], 'first');
+            if($user && $user['token']) {
+                $this->token = $user['token'];
+                $this->view->redirect('/');
+            }
+            else {
+                $api = new ApiServices();
+                $tokenRequest = $api->authorize(['email' => $_POST['email'], 'password' => $_POST['password']]);
+                if($tokenRequest) {
+                    $user = $this->model->store([
+                        'email' => $email,
+                        'password' => $password,
+                        'token' => $tokenRequest,
+                    ]);
+                    $this->token = $tokenRequest;
+                    $this->view->redirect('/');
+                }
+                else {
+                    $this->view->render('Увійти', ['errors' => 'Пару логін/пароль не знайдено.']);
+                }
+            }
+        }
     }
 }
