@@ -1,3 +1,4 @@
 WebApp/Config/secretconf.php
+WebApp/Config/db.php
 public/storage*
 dev/*
