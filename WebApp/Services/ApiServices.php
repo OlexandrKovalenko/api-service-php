@@ -7,11 +7,14 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\RequestOptions;
 
 class ApiServices {
-    protected $apiBaseUri = 'http://cus-api.test';
+
+    protected $apiBaseUri;
     protected $token;
     protected $client;
 
     function __construct($authData = null) {
+        $secretconf = require 'WebApp/Config/secretconf.php';
+        $this->apiBaseUri = $secretconf['apiUrl'];
         $this->client = new Client([
             'base_uri' => $this->apiBaseUri,
             'headers' => [
