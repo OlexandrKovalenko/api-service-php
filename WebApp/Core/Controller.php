@@ -36,7 +36,10 @@ class Controller {
 
     function checkAcl() {
         
-        $this->acl = require 'WebApp/acl/' .$this->route['controller']. '.php';
+        $this->acl = file_exists('WebApp/acl/' .$this->route['controller']. '.php') ? 
+            require 'WebApp/acl/' .$this->route['controller']. '.php':
+            require 'WebApp/acl/' .ucfirst($this->route['controller']). '.php';
+
         if(isset($_SESSION['authenticated']['id']) and $this->isAcl('authorise')) {
             return true;
         }
