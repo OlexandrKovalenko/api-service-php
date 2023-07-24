@@ -4,6 +4,7 @@
     <title><?php echo $title ?></title>
     <link rel="stylesheet" href="../../../public/styles/bootstrap-reboot.min.css">
     <link rel="stylesheet" href="../../../public/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../public/styles/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../../../public/styles/style.css">
     <script src="../../../public/scripts/jquery-3.7.0.min.js"></script>
 </head>

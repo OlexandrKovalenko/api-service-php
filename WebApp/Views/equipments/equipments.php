@@ -50,24 +50,20 @@
                     <th scope="col">Місто</th>
                     <th scope="col">Адреса</th>
                     <th scope="col">Тел.</th>
-                    <th scope="col">Тип</th>
+
                   </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                    <?php foreach($terminals as $terminal) {?>
+                    <?php foreach($equipments as $equipment) {?>
 
                   <tr>
-                    <th scope="row"><?php echo '<a href="terminals/'.$terminal->id.'" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">'.$terminal->number.'</a>';?></th>
-                    <td><?php echo '<a href="counterparties/'.$terminal->counterparty->id.'" class="link-underline-info">'.$terminal->counterparty->name.'</a>';?></td>
-                    <td><?php echo $terminal->settlement->name?></td>
-                    <td><?php echo $terminal->address;?></td>
-                    <th><?php echo $terminal->phone;?></th>
-                    <td>
-                        <?php $var = $terminal->is_outdoor ? 'Вулиця' : 'Внутрішній';
+                    <th scope="row"><?php echo '<a href="equipments/'.$equipment->id.'" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">'.$equipment->inventory_number.'</a>';?></th>
+                    <td><?php echo $equipment->equipment_type->type .' / '. $equipment->equipment_modification->modification ?></td>
+                    <td><?php echo $equipment->equipment_status->status;?></td>
+                    <td><?php echo '<a href="counterparties/'.$equipment->counterparty->id.'" class="link-underline-info">'.$equipment->counterparty->name.'</a>';?></td>
+                    <th><?php echo '<a href="bodies/'.$equipment->body->id.'" class="link-underline-info">'.$equipment->body->inventory_number.'</a> / 
+                    <a href="terminals/'.$equipment->body->terminal->id.'" class="link-underline-info">'.$equipment->body->terminal->number.'</a>';?></th>
 
-                            echo '<a href="case/'.$terminal->body[0]->id.'" class="link-underline-info">'.$terminal->body[0]->inventory_number.'</a>' .' / '. $var;
-                        ?>
-                    </td>
                   </tr>
                   <?php }; ?>
                 </tbody>

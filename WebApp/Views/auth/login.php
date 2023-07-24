@@ -1,15 +1,16 @@
 <div class="login-wrapper d-flex align-items-center py-4 bg-body-tertiary">
     <main class="form-signin w-100 m-auto bg-warning-subtle">
       <form action="login/authorize" method="post">
-        <img class="mb-4" src="#" alt="" width="72" height="57">
-        <h1 class="h3 mb-3 fw-normal">Вхід</h1>
+      <i class="bi bi-box-arrow-in-right text-primary h1"></i>
+        <!-- <img class="mb-4" src="#" alt="" width="72" height="57"> -->
+        <h1 class="h3 mb-3 fw-normal text-center">Вхід</h1>
     
         <div class="form-floating mb-2">
           <input type="text" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
           <label for="floatingInput">Email address</label>
         </div>
         <div class="form-floating">
-          <input type="text" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+          <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
           <label for="floatingPassword">Password</label>
         </div>
     

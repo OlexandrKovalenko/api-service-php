@@ -6,7 +6,11 @@ use WebApp\Core\Controller;
 class TerminalsController extends Controller {
 
     function terminalsAction() {
-        $this->view->redirect('/login');
-        $this->view->render('Термінали');
+        $response = $this->model->api->sendGetRequest('warehouse/terminal/');
+        $data = $this->dataHelper->normalizeData(json_decode($response));
+
+        $this->view->render('Термінали',['terminals' => $data]);
     }
+
+
 }

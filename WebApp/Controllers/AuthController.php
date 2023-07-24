@@ -30,11 +30,18 @@ class AuthController extends Controller {
         $this->view->render('Увійти');
     }
 
-    function authorizeAction() {
+    function authorizationAction() {
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
             $email = $_POST['email'];
             $password = $_POST['password'];
             $user = $this->model->get(['email' => $email], 'first');
+            session_start();
+            $_SESSION['authenticated'] = [
+                'id' => $user['id'],
+                'token' => $user['token'],
+                'admin' => true
+            ];
+
             if($user && $user['token']) {
                 $this->token = $user['token'];
                 $this->view->redirect('/');
@@ -51,10 +58,16 @@ class AuthController extends Controller {
                     $this->token = $tokenRequest;
                     $this->view->redirect('/');
                 }
-                else {
-                    $this->view->render('Увійти', ['errors' => 'Пару логін/пароль не знайдено.']);
-                }
+                $this->view->redirect('/login');
             }
         }
+        $this->view->redirect('/login');
+    }
+
+    function logoutAction() {
+        session_start();
+        session_destroy();
+        $this->view->redirect('/login');
+        exit;
     }
 }

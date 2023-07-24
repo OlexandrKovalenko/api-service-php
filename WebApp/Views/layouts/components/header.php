@@ -8,7 +8,7 @@
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
             <li><a href="/" class="nav-link px-2 text-secondary">Головна</a></li>
             <li><a href="/terminals" class="nav-link px-2 text-white">Термінали</a></li>
-            <li><a href="/sorage" class="nav-link px-2 text-white">Інвентар</a></li>
+            <li><a href="/equipments" class="nav-link px-2 text-white">Інвентар</a></li>
             <li><a href="/cases" class="nav-link px-2 text-white">Корпуси</a></li>
             <li><a href="/sim-cards" class="nav-link px-2 text-white">Sim-Карти</a></li>
         </ul>
@@ -17,9 +17,11 @@
             <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
         </form>
 
-        <div class="text-end">
-        <button type="button" class="btn btn-outline-light">Пошук</button>
-            <button type="button" class="btn btn-warning">Вийти</button>
+        <div class="text-end d-flex">
+            <button type="button" class="btn btn-outline-light me-3">Пошук</button>
+            <form action="/logout" method="post">
+                <button type='submit' class="btn btn-warning ">Вийти</button>
+            </form>
         </div>
         </div>
     </div>

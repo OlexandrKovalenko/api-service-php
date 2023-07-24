@@ -11,10 +11,22 @@ return [
     ],
     'login/authorize' => [
         'controller' => 'auth',
-        'action' => 'authorize'
+        'action' => 'authorization'
+    ],
+    'logout' => [
+        'controller' => 'auth',
+        'action' => 'logout'
     ],
     'terminals' => [
         'controller' => 'terminals',
         'action' => 'terminals'
+    ],
+    'equipments' => [
+        'controller' => 'equipments',
+        'action' => 'equipments'
+    ],
+    'cases' => [
+        'controller' => 'bodies',
+        'action' => 'bodies'
     ],
 ];
