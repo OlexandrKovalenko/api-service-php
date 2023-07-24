@@ -21,7 +21,8 @@ class ApiServices {
                 'Accept' => 'application/json',
             ],
         ]);
-        $this->token = $_SESSION['authenticated']['token'];
+        if(isset($_SESSION['authenticated']['token']))
+            $this->token = $_SESSION['authenticated']['token'];
     }
 
     function authorize($authData) {

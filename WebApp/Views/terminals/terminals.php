@@ -56,7 +56,7 @@
                 <tbody class="table-group-divider">
                     <?php foreach($terminals as $terminal) {?>
 
-                  <tr>
+                  <tr <?php if(!$terminal->is_active) echo 'class="table-secondary"'; ?> >
                     <th scope="row"><?php echo '<a href="terminals/'.$terminal->id.'" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">'.$terminal->number.'</a>';?></th>
                     <td><?php echo '<a href="counterparties/'.$terminal->counterparty->id.'" class="link-underline-info">'.$terminal->counterparty->name.'</a>';?></td>
                     <td><?php echo $terminal->settlement->name?></td>

@@ -46,29 +46,20 @@
                 <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Контрагент</th>
-                    <th scope="col">Місто</th>
+                    <th scope="col">Тип корпусу</th>
+                    <th scope="col">Точка</th>
                     <th scope="col">Адреса</th>
-                    <th scope="col">Тел.</th>
-                    <th scope="col">Тип</th>
                   </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                    <?php foreach($terminals as $terminal) {?>
+                    <?php foreach($bodies as $body) {;?>
 
                   <tr>
-                    <th scope="row"><?php echo '<a href="terminals/'.$terminal->id.'" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">'.$terminal->number.'</a>';?></th>
-                    <td><?php echo '<a href="counterparties/'.$terminal->counterparty->id.'" class="link-underline-info">'.$terminal->counterparty->name.'</a>';?></td>
-                    <td><?php echo $terminal->settlement->name?></td>
-                    <td><?php echo $terminal->address;?></td>
-                    <th><?php echo $terminal->phone;?></th>
-                    <td>
-                        <?php $var = $terminal->is_outdoor ? 'Вулиця' : 'Внутрішній';
-
-                            echo '<a href="case/'.$terminal->body[0]->id.'" class="link-underline-info">'.$terminal->body[0]->inventory_number.'</a>' .' / '. $var;
-                        ?>
-                    </td>
-                  </tr>
+                    <th scope="row"><?php echo '<a href="cases/'.$body->id.'" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">'.$body->inventory_number.'</a>';?></th>
+                    <td><?php echo $body->bodytype->type;?></td>
+                    <td><?php echo '<a href="terminals/'.$body->terminal->id.'" class="link-underline-info">'.$body->terminal->number.'</a>'?></td>
+                    <td><?php echo $body->terminal->settlement->name. ' / ' .$body->terminal->settlement->region->name;?></td>
+                </tr>
                   <?php }; ?>
                 </tbody>
               </table>
