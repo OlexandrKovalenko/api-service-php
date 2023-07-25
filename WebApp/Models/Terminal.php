@@ -4,6 +4,6 @@ namespace WebApp\Models;
 
 use WebApp\Core\Model;
 
-class Bodies extends Model {
+class Terminal extends Model {
 
 }

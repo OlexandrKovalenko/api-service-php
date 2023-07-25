@@ -2,17 +2,17 @@
 
 return [
     'authorise' => [
-        'terminals',
+        'index',
         'show',
         'edit',
     ],
     'admin' => [
-        'terminals',
+        'index',
         'show',
         'edit',
     ],
     'supervisor' => [
-        'terminals',
+        'index',
         'show',
         'edit',
     ],

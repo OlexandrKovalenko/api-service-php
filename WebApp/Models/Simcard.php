@@ -4,6 +4,6 @@ namespace WebApp\Models;
 
 use WebApp\Core\Model;
 
-class Terminals extends Model {
+class SimCard extends Model {
 
 }

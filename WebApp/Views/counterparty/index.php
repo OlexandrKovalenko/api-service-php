@@ -45,25 +45,27 @@
             <table class="table table-hover table-bordered">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Контрагент</th>
-                    <th scope="col">Місто</th>
-                    <th scope="col">Адреса</th>
+                    <th scope="col">Назва/Ім`я</th>
+                    <th scope="col">Повна назва/ім`я</th>
                     <th scope="col">Тел.</th>
-
+                    <th scope="col">Тип відносин</th>
+                    <th scope="col">Замітка</th>
                   </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                    <?php foreach($equipments as $equipment) {?>
+                    <?php foreach($counterparties as $counterparty) {?>
 
-                  <tr>
-                    <th scope="row"><?php echo '<a href="equipments/'.$equipment->id.'" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">'.$equipment->inventory_number.'</a>';?></th>
-                    <td><?php echo $equipment->equipment_type->type .' / '. $equipment->equipment_modification->modification ?></td>
-                    <td><?php echo $equipment->equipment_status->status;?></td>
-                    <td><?php echo '<a href="counterparties/'.$equipment->counterparty->id.'" class="link-underline-info">'.$equipment->counterparty->name.'</a>';?></td>
-                    <th><?php echo '<a href="bodies/'.$equipment->body->id.'" class="link-underline-info">'.$equipment->body->inventory_number.'</a> / 
-                    <a href="terminals/'.$equipment->body->terminal->id.'" class="link-underline-info">'.$equipment->body->terminal->number.'</a>';?></th>
-
+                    <tr <?php $trClass = $counterparty->counterparty_relation_id === 1 
+                        || $counterparty->counterparty_relation_id === 2 
+                        || $counterparty->counterparty_relation_id === 3 
+                        ? 'class="table-success"' 
+                        : null; echo $trClass;
+                        ?> >
+                    <th scope="row"><?php echo '<a href="counterparty/'.$counterparty->id.'" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">'.$counterparty->name.'</a>';?></th>
+                    <td><?php echo $counterparty->full_name;?></td>
+                    <td><?php echo $counterparty->phone;?></td>
+                    <td><?php echo $counterparty->counterparty_relation->name;?></td>
+                    <th><?php echo $counterparty->description;?></th>
                   </tr>
                   <?php }; ?>
                 </tbody>

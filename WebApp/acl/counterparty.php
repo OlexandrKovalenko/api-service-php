@@ -2,17 +2,17 @@
 
 return [
     'authorise' => [
-        'bodies',
+        'index',
         'show',
         'edit',
     ],
     'admin' => [
-        'bodies',
+        'index',
         'show',
         'edit',
     ],
     'supervisor' => [
-        'bodies',
+        'index',
         'show',
         'edit',
     ],

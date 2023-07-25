@@ -1,7 +1,7 @@
 <?php
 
 return [
-    '' => [
+     '' => [
         'controller' => 'main',
         'action' => 'index'
     ],
@@ -17,16 +17,46 @@ return [
         'controller' => 'auth',
         'action' => 'logout'
     ],
-    'terminals' => [
-        'controller' => 'terminals',
-        'action' => 'terminals'
+// TerminalController
+    'terminal' => [
+        'controller' => 'terminal',
+        'action' => 'index'
     ],
-    'equipments' => [
-        'controller' => 'equipments',
-        'action' => 'equipments'
+    'terminal/{id:\d+}' => [
+        'controller' => 'terminal',
+        'action' => 'show'
     ],
-    'cases' => [
-        'controller' => 'bodies',
-        'action' => 'bodies'
+
+// EquipmentController
+    'equipment' => [
+        'controller' => 'equipment',
+        'action' => 'index'
+    ],
+    'equipment/{id:\d+}' => [
+        'controller' => 'equipment',
+        'action' => 'show'
+    ],
+// BodyController
+    'case' => [
+        'controller' => 'body',
+        'action' => 'index'
+    ],
+    'case/{id:\d+}' => [
+        'controller' => 'body',
+        'action' => 'show'
+    ],
+// CounterpartyController
+    'counterparty' => [
+        'controller' => 'counterparty',
+        'action' => 'index'
+    ],
+    'counterparty/{id:\d+}' => [
+        'controller' => 'counterparty',
+        'action' => 'show'
+    ],
+// SimcardController
+    'sim-card' => [
+        'controller' => 'simcard',
+        'action' => 'index'
     ],
 ];

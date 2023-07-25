@@ -7,10 +7,11 @@
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
             <li><a href="/" class="nav-link px-2 text-secondary">Головна</a></li>
-            <li><a href="/terminals" class="nav-link px-2 text-white">Термінали</a></li>
-            <li><a href="/equipments" class="nav-link px-2 text-white">Інвентар</a></li>
-            <li><a href="/cases" class="nav-link px-2 text-white">Корпуси</a></li>
-            <li><a href="/sim-cards" class="nav-link px-2 text-white">Sim-Карти</a></li>
+            <li><a href="/counterparty" class="nav-link px-2 text-white">Контрагенти</a></li>
+            <li><a href="/terminal" class="nav-link px-2 text-white">Термінали</a></li>
+            <li><a href="/equipment" class="nav-link px-2 text-white">Інвентар</a></li>
+            <li><a href="/case" class="nav-link px-2 text-white">Корпуси</a></li>
+            <li><a href="/sim-card" class="nav-link px-2 text-white">Sim-Карти</a></li>
         </ul>
 
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
