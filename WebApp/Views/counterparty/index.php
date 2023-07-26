@@ -61,7 +61,7 @@
                         ? 'class="table-success"' 
                         : null; echo $trClass;
                         ?> >
-                    <th scope="row"><?php echo '<a href="counterparty/'.$counterparty->id.'" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">'.$counterparty->name.'</a>';?></th>
+                    <th scope="row"><?php echo '<a href="/counterparty/'.$counterparty->id.'" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">'.$counterparty->name.'</a>';?></th>
                     <td><?php echo $counterparty->full_name;?></td>
                     <td><?php echo $counterparty->phone;?></td>
                     <td><?php echo $counterparty->counterparty_relation->name;?></td>

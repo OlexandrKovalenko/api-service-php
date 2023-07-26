@@ -19,4 +19,11 @@ class EquipmentController extends Controller {
 
         $this->view->render('Устаткування: '.$data[0]->inventory_number,['equipment' => $data[0]]);
     }
+
+    function editAction() {
+        $response = $this->model->api->sendGetRequest('warehouse/equipment/'.$this->route['id']);
+        $data = $this->dataHelper->normalizeData(json_decode($response));
+
+        $this->view->render('Устаткування: '.$data[0]->inventory_number,['equipment' => $data[0]]);
+    }
 }

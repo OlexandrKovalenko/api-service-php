@@ -10,6 +10,7 @@ return [
         'index',
         'show',
         'edit',
+        'delete'
     ],
     'supervisor' => [
         'index',

@@ -19,5 +19,10 @@ class TerminalController extends Controller {
         $this->view->render('Термінал: '.$data[0]->number,['terminal' => $data[0]]);
     }
 
+    function editAction() {
+        $response = $this->model->api->sendGetRequest('warehouse/terminal/'.$this->route['id']);
+        $data = $this->dataHelper->normalizeData(json_decode($response));
+        $this->view->render('Термінал: '.$data[0]->number,['terminal' => $data[0]]);
+    }
 
 }

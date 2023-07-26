@@ -1,9 +1,13 @@
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/header.php')?>
+<?php 
+include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/header.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/backButton.php');
+?>
+
 <div class="wrapper m-5">
     <div class="content">
         <div class="filter card">
             <div class="card-header d-flex align-items-center">
-                <a href="/counterparty">
+                <a href="<?php backButton('/counterparty'); ?>">
                 <i class="bi bi-arrow-left-square h3 me-3 text-info btn btn-outline-secondary"></i>
                 </a>
                 <p class="mb-0 flex-grow-1"><?php echo $title;?></p>

@@ -44,25 +44,25 @@
             </div>
             <table class="table table-hover table-bordered">
                 <thead>
-                  <tr>
+                <tr>
                     <th scope="col">#</th>
                     <th scope="col">Тип корпусу</th>
                     <th scope="col">Точка</th>
                     <th scope="col">Адреса</th>
-                  </tr>
+                </tr>
                 </thead>
                 <tbody class="table-group-divider">
                     <?php foreach($bodies as $body) {;?>
 
-                  <tr>
-                    <th scope="row"><?php echo '<a href="cases/'.$body->id.'" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">'.$body->inventory_number.'</a>';?></th>
+                <tr>
+                    <th scope="row"><?php echo '<a href="case/'.$body->id.'" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">'.$body->inventory_number.'</a>';?></th>
                     <td><?php echo $body->bodytype->type;?></td>
-                    <td><?php echo '<a href="terminals/'.$body->terminal->id.'" class="link-underline-info">'.$body->terminal->number.'</a>'?></td>
+                    <td><?php echo '<a href="terminal/'.$body->terminal->id.'" class="link-underline-info">'.$body->terminal->number.'</a>'?></td>
                     <td><?php echo $body->terminal->settlement->name. ' / ' .$body->terminal->settlement->region->name;?></td>
                 </tr>
-                  <?php }; ?>
+                    <?php }; ?>
                 </tbody>
-              </table>
+            </table>
         </div>
     </div>
 </div>
