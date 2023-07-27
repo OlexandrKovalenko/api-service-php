@@ -5,8 +5,8 @@
             <?php $border = $equipment->equipment_status->id === 5 ? 'border-dark' : 'border-info'; echo  $border;?>
         ">
             <div class="card-header d-flex align-items-center 
-            <?php $border = $equipment->equipment_status->id === 5 ? 'border-bottom border-dark-subtle' : 'border-bottom border-info-subtle'; echo  $border;?> 
-            ">
+                <?php $border = $equipment->equipment_status->id === 5 ? 'border-bottom border-dark-subtle' : 'border-bottom border-info-subtle'; echo  $border;?> 
+                ">
                 <a href="/equipment">
                 <i class="bi bi-arrow-left-square h3 me-3 text-info btn btn-outline-secondary"></i>
                 </a>

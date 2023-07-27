@@ -2,8 +2,13 @@
 <div class="wrapper m-5">
     <div class="content">
         <div class="filter card">
-            <div class="card-header">
-                Термінали
+            <div class="card-header d-flex align-items-center">
+                <p class="mb-0 flex-grow-1"><?php echo $title;?></p>
+                
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                
+                <a href="case/create" class="btn btn-success">Створити</a>
+                </div>
             </div>
             <div class="card-body">
                 <div class="row">

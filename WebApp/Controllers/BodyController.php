@@ -2,7 +2,7 @@
 namespace WebApp\Controllers;
 
 use WebApp\Core\Controller;
-
+use WebApp\Exceptions\ApiRequestException;
 class BodyController extends Controller {
 
     function indexAction() {
@@ -20,6 +20,15 @@ class BodyController extends Controller {
     }
 
     function editAction() {
+        if($_POST){
+            try {
+                $this->model->api->sendRequest('PUT', 'warehouse/body', $_POST, $this->route['id']);
+                $this->view->redirect('/case/'.$this->route['id']);
+            } catch (ApiRequestException $e) {
+                echo 'Помилка запиту: ' . $e->getMessage();
+            }
+        }
+
         $response = $this->model->api->sendGetRequest('warehouse/body/'.$this->route['id']);
         $data['body'] = json_decode($response)[0];
         $response = $this->model->api->sendGetRequest('warehouse/terminal.search', ['list'=> true]);
@@ -27,5 +36,9 @@ class BodyController extends Controller {
         $response = $this->model->api->sendGetRequest('warehouse/body-type');
         $data['bodytype'] = json_decode($response);
         $this->view->render('Редагування: '.$data['body']->inventory_number, ['data' => $data]);
+    }
+
+    function createAction() {
+        return $this->todo();
     }
 }

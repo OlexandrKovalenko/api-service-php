@@ -14,5 +14,7 @@ class SimcardController extends Controller {
         $this->view->render('Контрагенти',['simcards' => $data]);
     }
 
-
+    function createAction() {
+        return $this->todo();
+    }
 }

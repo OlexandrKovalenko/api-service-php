@@ -5,17 +5,20 @@ return [
         'index',
         'show',
         'edit',
+        'create',
     ],
     'admin' => [
         'index',
         'show',
         'edit',
         'delete',
+        'create',
     ],
     'supervisor' => [
         'index',
         'show',
         'edit',
+        'create',
     ],
     'guest' => [
     ],

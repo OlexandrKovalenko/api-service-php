@@ -75,8 +75,12 @@
                     </th>
                     <td><?php echo $equipment->equipment_type->type. ' / ' .$equipment->equipment_modification->modification;?></td>
                     <td>
-                        <?php $dateTime = new DateTime($equipment->updated_at);
-                                echo $dateTime->format('d.m.Y H:i:s')?>
+                        <?php 
+                        if($equipment->updated_at !== null) {
+                            $dateTime = new DateTime($equipment->updated_at);
+                            echo $dateTime->format('d.m.Y H:i:s');
+                        }
+                        ?>
                     </td>
                     </tr>
                     <?php }?>

@@ -5,6 +5,7 @@ namespace WebApp\Services;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\RequestOptions;
+use WebApp\Exceptions\ApiRequestException;
 
 class ApiServices {
 
@@ -60,6 +61,29 @@ class ApiServices {
         } catch (RequestException $e) {
             // Обробка помилки запиту
             return null;
+        }
+    }
+
+    public function sendRequest($method, $endpoint, $data = [], $id = null)
+    {
+        try {
+            $url = 'api/v1/' . $endpoint . ($id ? '/' . $id : '');
+            $options = [
+                RequestOptions::HEADERS => [
+                    'Authorization' => 'Bearer ' . $this->token,
+                ],
+            ];
+
+            if ($method === 'GET') {
+                $options[RequestOptions::QUERY] = $data;
+            } else {
+                $options[RequestOptions::JSON] = $data;
+            }
+
+            $response = $this->client->request($method, $url, $options);
+            return $response->getBody()->getContents();
+        } catch (RequestException $e) {
+            throw new ApiRequestException($e->getMessage(), $e->getCode(), $e);
         }
     }
 }

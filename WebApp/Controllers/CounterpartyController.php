@@ -27,4 +27,8 @@ class CounterpartyController extends Controller {
 
         $this->view->render('Редагування: '.$data['counterparty']->name,['data' => $data]);
     }
+
+    function createAction() {
+        return $this->todo();
+    }
 }

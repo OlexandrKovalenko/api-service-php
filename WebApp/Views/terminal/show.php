@@ -13,12 +13,13 @@
                 <p class="mb-0 flex-grow-1"><?php echo $title;?></p>
                 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                
-                <?php $activeteBtn = $terminal->is_active
-                        ? '<a href="#" class="btn btn-outline-danger me-md-2" type="button">Деактивувати</a>'
-                        : '<a href="#" class="btn btn-outline-success me-md-2" type="button">Активувати</a>';
+                <form action = '/terminal/activate/<?php echo $terminal->id;?>' method="POST">
+                    <?php $activeteBtn = $terminal->is_active
+                        ? '<button class="btn btn-outline-danger me-md-2" type="submit">Деактивувати</button><input type="text" name="is_active" value="0" value hidden>'
+                        : '<button class="btn btn-outline-success me-md-2" type="submit">Активувати</button><input type="text" name="is_active" value = "1" hidden>';
                         echo $activeteBtn;
                         ?>
+                </form>
                 <a href="edit/<?php echo $terminal->id;?>" class="btn btn-primary">Редагувати</a>
                 </div>
             </div>

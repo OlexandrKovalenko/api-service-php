@@ -30,6 +30,14 @@ return [
         'controller' => 'terminal',
         'action' => 'edit'
     ],
+    'terminal/activate/{id:\d+}' => [
+        'controller' => 'terminal',
+        'action' => 'activate'
+    ],
+    'terminal/create' => [
+        'controller' => 'terminal',
+        'action' => 'create'
+    ],
 
 // EquipmentController
     'equipment' => [
@@ -43,6 +51,10 @@ return [
     'equipment/edit/{id:\d+}' => [
         'controller' => 'equipment',
         'action' => 'edit'
+    ],
+    'equipment/create' => [
+        'controller' => 'equipment',
+        'action' => 'create'
     ],
 
 // BodyController
@@ -58,6 +70,10 @@ return [
         'controller' => 'body',
         'action' => 'edit'
     ],
+    'case/create' => [
+        'controller' => 'body',
+        'action' => 'create'
+    ],
 
 // CounterpartyController
     'counterparty' => [
@@ -72,6 +88,10 @@ return [
         'controller' => 'counterparty',
         'action' => 'edit'
     ],
+    'counterparty/create' => [
+        'controller' => 'counterparty',
+        'action' => 'create'
+    ],
 
 // SimcardController
     'sim-card' => [
@@ -85,6 +105,10 @@ return [
     'sim-card/edit/{id:\d+}' => [
         'controller' => 'simcard',
         'action' => 'edit'
+    ],
+    'sim-card/create' => [
+        'controller' => 'simcard',
+        'action' => 'create'
     ],
 
 ];

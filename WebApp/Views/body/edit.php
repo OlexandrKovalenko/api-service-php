@@ -7,7 +7,7 @@ $bodytypes = $data['bodytype'];
 ?>
 <div class="wrapper m-5">
     <div class="content">
-        <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="PUT">
+        <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="POST">
             <div class="filter card border">
                 <div class="card-header d-flex align-items-center">
                     <a href="<?php backButton('/case/'.$body->id); ?>">
@@ -28,7 +28,7 @@ $bodytypes = $data['bodytype'];
                                     <label for="terminal" class="form-label">Термінал</label>
                                 </div>
                                 <div class="card-body">
-                                    <select class="form-select" id="terminal" aria-label="Default select example">
+                                    <select class="form-select" id="terminal" aria-label="Default select example" name='terminal'>
                                         <?php foreach($terminals as $terminal) {?>
                                             <option value="<?php echo $terminal->id;?>" <?php if($body->terminal_id == $terminal->id) echo 'selected';?>>
                                                 <?php echo $terminal->number;?></option>
@@ -43,7 +43,7 @@ $bodytypes = $data['bodytype'];
                                     <label for="type" class="form-label">Тип корпусу</label>
                                 </div>
                                 <div class="card-body">
-                                    <select class="form-select" id="type" aria-label="Default select example">
+                                    <select class="form-select" id="type" aria-label="Default select example" name='type'>
                                         <?php foreach($bodytypes as $bodytype) {?>
                                             <option value="<?php echo $bodytype->id;?>" <?php if($body->body_type_id == $bodytype->id) echo 'selected';?>>
                                                 <?php echo $bodytype->type. ' / ' .$bodytype->diagonal. '"';?></option>
@@ -61,7 +61,7 @@ $bodytypes = $data['bodytype'];
                                 </div>
                                 <div class="card-body">
                                     <div class="mb-3">
-                                        <textarea rows="3" type="tex" class="form-control" id="description"><?php echo $body->description;?></textarea>
+                                        <textarea rows="3" type="tex" class="form-control" id="description" name='description'><?php echo $body->description;?></textarea>
                                     </div>
                                 </div>
                             </div>
