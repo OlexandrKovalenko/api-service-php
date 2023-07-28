@@ -7,7 +7,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/backButton
     <div class="content">
         <div class="filter card">
             <div class="card-header d-flex align-items-center">
-                <a href="<?php backButton('/counterparty'); ?>">
+                <a href="/counterparty">
                 <i class="bi bi-arrow-left-square h3 me-3 text-info btn btn-outline-secondary"></i>
                 </a>
                 <p class="mb-0 flex-grow-1"><?php echo $title;?></p>

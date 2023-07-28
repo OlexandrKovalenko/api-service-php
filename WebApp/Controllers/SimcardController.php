@@ -7,7 +7,7 @@ class SimcardController extends Controller {
 
     function indexAction() {
 
-        $response = $this->model->api->sendGetRequest('warehouse/sim');
+        $response = $this->api->sendGetRequest('warehouse/sim');
 
         $data = $this->dataHelper->normalizeData(json_decode($response));
 

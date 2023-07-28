@@ -3,7 +3,7 @@
     <div class="content">
         <div class="filter card border">
             <div class="card-header d-flex align-items-center">
-                <a href="/body">
+                <a href="/case">
                 <i class="bi bi-arrow-left-square h3 me-3 text-info btn btn-outline-secondary"></i>
                 </a>
                 <p class="mb-0 flex-grow-1 h3"><?php echo $title;?></p>

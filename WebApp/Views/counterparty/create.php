@@ -1,15 +1,13 @@
 <?php 
 include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/header.php');
 include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/backButton.php');
-$counterparty = $data['counterparty'];
-$relations = $data['relations'];
 ?>
 <div class="wrapper m-5">
     <div class="content">
         <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="POST">
             <div class="filter card">
                 <div class="card-header d-flex align-items-center">
-                    <a href="<?php backButton('/counterparty/'.$counterparty->id); ?>">
+                    <a href="<?php backButton('/counterparty/'); ?>">
                     <i class="bi bi-arrow-left-square h3 me-3 text-info btn btn-outline-secondary"></i>
                     </a>
                     <p class="mb-0 flex-grow-1"><?php echo $title;?></p>
@@ -29,11 +27,11 @@ $relations = $data['relations'];
                                 <div class="card-body">
                                     <div class="mb-3">
                                         <label for="name" class="form-label">Ім`я / Назва</label>
-                                        <input type="text" class="form-control" id="name" name="name" value="<?php echo $counterparty->name?>">
+                                        <input type="text" class="form-control" id="name" name="name">
                                     </div>
                                     <div class="mb-3">
                                         <label for="fullname" class="form-label">Повне ім`я / назва</label>
-                                        <input type="text" class="form-control" id="fullname" name="fullname" value="<?php echo  $counterparty->full_name;?>">
+                                        <input type="text" class="form-control" id="fullname" name="fullname">
                                     </div>
                                 </div>
                             </div>
@@ -46,10 +44,7 @@ $relations = $data['relations'];
                                 </div>
                                 <div class="card-body">
                                     <select class="form-select" id="relation" aria-label="Default select example" name="relation">
-                                        <?php foreach($relations as $relation) {?>
-                                            <option value="<?php echo $relation->id;?>" <?php if($counterparty->counterparty_relation_id == $relation->id) echo 'selected';?>>
-                                                <?php echo $relation->name;?></option>
-                                        <?php }?>
+                                    <?php $this->viewForms->selectOptions($selectFormOptions['relations'], 'relations')?>
                                     </select>
                                 </div>
                             </div>
@@ -61,7 +56,7 @@ $relations = $data['relations'];
                                 </div>
                                 <div class="card-body">
                                     <div class="mb-3">
-                                        <input type="text" name="phone" class="form-control" id="phone" value="<?php echo $counterparty->phone;?>">
+                                        <input type="text" class="form-control" id="phone" name="phone">
                                     </div>
                                 </div>
                             </div>
@@ -75,7 +70,7 @@ $relations = $data['relations'];
                                 </div>
                                 <div class="card-body">
                                     <div class="mb-3">
-                                        <textarea name="description" rows="3" type="tex" class="form-control" id="description"><?php echo $counterparty->description;?></textarea>
+                                        <textarea rows="3" type="tex" class="form-control" id="description" name="description"></textarea>
                                     </div>
                                 </div>
                             </div>

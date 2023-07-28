@@ -1,15 +1,18 @@
 <?php
 namespace WebApp\Core;
 
+use WebApp\Helpers\ViewFormsHelper;
 class View {
 
     public $route;
     public $path;
     public $layout = 'default';
+    public $viewForms;
 
     function __construct($route) {
         $this->route = $route;
         $this->path = $route['controller'] . '/' . $route['action'];
+        $this->viewForms = new ViewFormsHelper();
     }
 
     function render($title, $vars = []) {

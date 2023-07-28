@@ -4,8 +4,11 @@ namespace WebApp\Core;
 use WebApp\Core\View;
 use WebApp\Services\ApiServices;
 use WebApp\Helpers\DataHelper;
+use WebApp\Traits\ApiRequestTrait;
 
 class Controller {
+
+    use ApiRequestTrait;
 
     public $route;
     public $view;
@@ -13,6 +16,7 @@ class Controller {
     public $acl;
     public $token;
     public $dataHelper;
+    public $api;
 
     function __construct($route) {
         $this->route = $route;
@@ -21,6 +25,7 @@ class Controller {
         }
         $this->view = new View($route);
         $this->model = $this->loadModel($route['controller']);
+        $this->api = new ApiServices;
         $this->dataHelper = new DataHelper();
         if (method_exists($this, 'before')) {
             
