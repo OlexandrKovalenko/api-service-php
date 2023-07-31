@@ -32,14 +32,8 @@ class TerminalController extends Controller {
         $response = $this->api->sendGetRequest('warehouse/terminal/'.$this->route['id']);
         $data['terminal'] = $this->dataHelper->normalizeData(json_decode($response))[0];
 
-        $response = $this->api->sendGetRequest('warehouse/body.search', ['list'=> true]);
-        $data['bodies'] = json_decode($response);
+        $data += $this->getSelectFormOptions(['counterparties', 'bodies', 'settlement']);
 
-        $response = $this->api->sendGetRequest('warehouse/settlement.search', ['list'=> true]);
-        $data['settlement'] = json_decode($response);
-
-        $response = $this->api->sendGetRequest('warehouse/counterparty.search', ['list'=> true]);
-        $data['counterparties'] = json_decode($response);
         $this->view->render('Редагування: '.$data['terminal']->number,['data' => $data]);
     }
 
@@ -55,6 +49,17 @@ class TerminalController extends Controller {
     }
 
     function createAction() {
-        return $this->todo();
+        if($_POST){
+            debug($_POST);
+            try {
+                $response = $this->api->sendRequest('POST', 'warehouse/terminal/create', $_POST);
+                $this->view->redirect('/terminal/'.$response);
+            } catch (ApiRequestException $e) {
+                echo 'Помилка запиту: ' . $e->getMessage();
+            }
+        }
+        $selectFormOptions = $this->getSelectFormOptions(['counterparties', 'bodies', 'settlements']);
+
+        $this->view->render('Додати новий термінал', ['selectFormOptions' => $selectFormOptions]);
     }
 }

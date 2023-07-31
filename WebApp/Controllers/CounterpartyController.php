@@ -49,6 +49,6 @@ class CounterpartyController extends Controller {
         }
         $selectFormOptions = $this->getSelectFormOptions(['relations']);
 
-        $this->view->render('Додати новий корпус', ['selectFormOptions' => $selectFormOptions]);
+        $this->view->render('Додати нового контрагента', ['selectFormOptions' => $selectFormOptions]);
     }
 }

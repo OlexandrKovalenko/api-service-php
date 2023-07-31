@@ -24,9 +24,14 @@ class EquipmentController extends Controller {
     function editAction() {
         if($_POST){
             try {
+                $_POST += [
+                    'id' => $this->route['id'],
+                    'user' => $_SESSION['authenticated']['id']
+                ];
                 $this->api->sendRequest('PUT', 'warehouse/equipment', $_POST, $this->route['id']);
                 $this->view->redirect('/equipment/'.$this->route['id']);
             } catch (ApiRequestException $e) {
+                debug($e->getMessage());
                 echo 'Помилка запиту: ' . $e->getMessage();
             }
         }
@@ -39,6 +44,19 @@ class EquipmentController extends Controller {
     }
 
     function createAction() {
-        return $this->todo();
+        if($_POST){
+            try {
+                $_POST += [
+                    'user' => $_SESSION['authenticated']['id']
+                ];
+                $response = $this->api->sendRequest('POST', 'warehouse/equipment/store', $_POST);
+                $this->view->redirect('/equipment/'.$response);
+            } catch (ApiRequestException $e) {
+                debug($e->getMessage());
+                echo 'Помилка запиту: ' . $e->getMessage();
+            }
+        }
+        $selectFormOptions = $this->getSelectFormOptions(['counterparties', 'bodies', 'settlements', 'modifications', 'statuses']);
+        $this->view->render('Додати обладнання', ['selectFormOptions' => $selectFormOptions]);
     }
 }

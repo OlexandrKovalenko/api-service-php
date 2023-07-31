@@ -20,7 +20,7 @@ trait ApiRequestTrait {
                 'statuses' => json_decode($this->api->sendGetRequest('warehouse/equipment-status')),
                 'equipmentTypes' => json_decode($this->api->sendGetRequest('warehouse/equipment-type')),
                 'modifications' => json_decode($this->api->sendGetRequest('warehouse/equipment-modification')),
-                'settlement' => json_decode($this->api->sendGetRequest('warehouse/settlement.search', ['list'=> true])),
+                'settlements' => json_decode($this->api->sendGetRequest('warehouse/settlement.search', ['list'=> true])),
             };
         }
 
