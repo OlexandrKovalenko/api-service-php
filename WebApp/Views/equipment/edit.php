@@ -17,7 +17,7 @@ $modifications = $data['modifications'];
                 <div class="card-header d-flex align-items-center 
                 <?php $border = $equipment->equipment_status->id === 5 ? 'border-bottom border-dark-subtle' : 'border-bottom border-info-subtle'; echo  $border;?> 
                 ">
-                    <a href="<? backButton('/equipment/'.$counterparty->id); ?>">
+                    <a href="/equipment/">
                     <i class="bi bi-arrow-left-square h3 me-3 text-info btn btn-outline-secondary"></i>
                     </a>
                     <p class="mb-0 flex-grow-1"><?php echo $title;?></p>

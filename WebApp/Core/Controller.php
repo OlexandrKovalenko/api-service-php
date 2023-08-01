@@ -17,6 +17,7 @@ class Controller {
     public $token;
     public $dataHelper;
     public $api;
+    public $user;
 
     function __construct($route) {
         $this->route = $route;

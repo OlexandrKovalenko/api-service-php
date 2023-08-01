@@ -23,7 +23,6 @@ class AuthController extends Controller {
                 $api = new ApiServices();
                 if(!empty($api->authorize(['email' => $_POST['email'], 'password' => $_POST['password']]))) {
                     $this->token = $api->authorize(['email' => $_POST['email'], 'password' => $_POST['password']]);
-                    debug($this->token);
                 }
             }
         }

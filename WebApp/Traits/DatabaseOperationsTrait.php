@@ -52,15 +52,19 @@ trait DatabaseOperationsTrait
 
         $query = "SELECT * FROM $table WHERE $values";
         $stmt = $db->prepare($query);
-
         foreach ($conditions as $key => $value) {
+
             $stmt->bindValue(":$key", $value);
         }
         
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+        
         $result = $first && !empty($result) ? $result[0] : $result;
         return $result;
+    }
+
+    public function getUserById($id) {
+        return $this->search('users', ['id' => $id], 'first');
     }
 }

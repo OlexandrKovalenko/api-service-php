@@ -7,7 +7,6 @@ use WebApp\Exceptions\ApiRequestException;
 class EquipmentController extends Controller {
 
     function indexAction() {
-
         $response = $this->api->sendGetRequest('warehouse/equipment');
         $data = $this->dataHelper->normalizeData(json_decode($response));
 
@@ -24,9 +23,10 @@ class EquipmentController extends Controller {
     function editAction() {
         if($_POST){
             try {
+                $user = $this->model->getUserById($_SESSION['authenticated']['id']);
                 $_POST += [
                     'id' => $this->route['id'],
-                    'user' => $_SESSION['authenticated']['id']
+                    'user' => $user['email']
                 ];
                 $this->api->sendRequest('PUT', 'warehouse/equipment', $_POST, $this->route['id']);
                 $this->view->redirect('/equipment/'.$this->route['id']);
@@ -46,8 +46,9 @@ class EquipmentController extends Controller {
         if($_POST){
 
             try {
+                $user = $this->model->getUserById($_SESSION['authenticated']['id']);
                 $_POST += [
-                    'user' => $_SESSION['authenticated']['id']
+                    'user' => $user['email']
                 ];
                 $response = $this->api->sendRequest('POST', 'warehouse/equipment/store', $_POST);
                 $this->view->redirect('/equipment/'.$response);
