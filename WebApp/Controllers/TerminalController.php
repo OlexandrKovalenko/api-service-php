@@ -50,7 +50,6 @@ class TerminalController extends Controller {
 
     function createAction() {
         if($_POST){
-            debug($_POST);
             try {
                 $response = $this->api->sendRequest('POST', 'warehouse/terminal/create', $_POST);
                 $this->view->redirect('/terminal/'.$response);

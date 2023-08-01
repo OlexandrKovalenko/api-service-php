@@ -55,6 +55,12 @@ class AuthController extends Controller {
                         'password' => $password,
                         'token' => $tokenRequest,
                     ]);
+                    $user = $this->model->get(['email' => $email], 'first');
+                    $_SESSION['authenticated'] = [
+                        'id' => $user['id'],
+                        'token' => $user['token'],
+                        'admin' => true
+                    ];
                     $this->token = $tokenRequest;
                     $this->view->redirect('/');
                 }

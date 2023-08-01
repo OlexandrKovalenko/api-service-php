@@ -31,7 +31,6 @@ class EquipmentController extends Controller {
                 $this->api->sendRequest('PUT', 'warehouse/equipment', $_POST, $this->route['id']);
                 $this->view->redirect('/equipment/'.$this->route['id']);
             } catch (ApiRequestException $e) {
-                debug($e->getMessage());
                 echo 'Помилка запиту: ' . $e->getMessage();
             }
         }
@@ -45,6 +44,7 @@ class EquipmentController extends Controller {
 
     function createAction() {
         if($_POST){
+
             try {
                 $_POST += [
                     'user' => $_SESSION['authenticated']['id']
@@ -52,7 +52,6 @@ class EquipmentController extends Controller {
                 $response = $this->api->sendRequest('POST', 'warehouse/equipment/store', $_POST);
                 $this->view->redirect('/equipment/'.$response);
             } catch (ApiRequestException $e) {
-                debug($e->getMessage());
                 echo 'Помилка запиту: ' . $e->getMessage();
             }
         }

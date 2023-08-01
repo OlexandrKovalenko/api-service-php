@@ -50,13 +50,13 @@ class ApiServices {
     function sendGetRequest($endpoint, $queryParams = []) {
 
         try {
-            
             $response = $this->client->get('api/v1/' . $endpoint, [
                 RequestOptions::HEADERS => [
                     'Authorization' => 'Bearer ' . $this->token,
                 ],
                 RequestOptions::QUERY => $queryParams,
             ]);
+
             return $response->getBody()->getContents();
         } catch (RequestException $e) {
             // Обробка помилки запиту
