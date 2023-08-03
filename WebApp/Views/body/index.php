@@ -44,8 +44,11 @@
             </div>
         </div>
         <div class="table card mt-3">
-            <div class="card-header">
-                Таблиця
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <div>Таблиця</div>
+                <div class="input-group w-25">
+                    <input type="text" class="form-control table-search" placeholder="Пошук...">
+                </div>
             </div>
             <table class="table table-hover table-bordered">
                 <thead>
@@ -56,11 +59,11 @@
                     <th scope="col">Адреса</th>
                 </tr>
                 </thead>
-                <tbody class="table-group-divider">
+                <tbody class="table-group-divider table-body">
                     <?php foreach($bodies as $body) {;?>
 
                 <tr>
-                    <th scope="row"><?php echo '<a href="case/'.$body->id.'" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">'.$body->inventory_number.'</a>';?></th>
+                    <th scope="row"><?php echo '<a href="case/'.$body->id.'" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover table-cell-number">'.$body->inventory_number.'</a>';?></th>
                     <td><?php echo $body->bodytype->type;?></td>
                     <td><?php echo '<a href="terminal/'.$body->terminal->id.'" class="link-underline-info">'.$body->terminal->number.'</a>'?></td>
                     <td><?php echo $body->terminal->settlement->name. ' / ' .$body->terminal->settlement->region->name;?></td>

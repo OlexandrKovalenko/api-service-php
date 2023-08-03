@@ -44,8 +44,11 @@
             </div>
         </div>
         <div class="table card mt-3">
-            <div class="card-header">
-                Таблиця
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <div>Таблиця</div>
+                <div class="input-group w-25">
+                    <input type="text" class="form-control table-search" placeholder="Пошук...">
+                </div>
             </div>
             <table class="table table-hover table-bordered">
                 <thead>
@@ -58,11 +61,11 @@
 
                   </tr>
                 </thead>
-                <tbody class="table-group-divider">
+                <tbody class="table-group-divider table-body">
                     <?php foreach($equipments as $equipment) {?>
 
                   <tr>
-                    <th scope="row"><?php echo '<a href="equipment/'.$equipment->id.'" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">'.$equipment->inventory_number.'</a>';?></th>
+                    <th scope="row"><?php echo '<a href="equipment/'.$equipment->id.'" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover table-cell-number">'.$equipment->inventory_number.'</a>';?></th>
                     <td><?php echo $equipment->equipment_type->type .' / '. $equipment->equipment_modification->modification ?></td>
                     <td><?php echo $equipment->equipment_status->status;?></td>
                     <td><?php echo '<a href="counterparty/'.$equipment->counterparty->id.'" class="link-underline-info">'.$equipment->counterparty->name.'</a>';?></td>
