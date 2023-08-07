@@ -97,7 +97,7 @@
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                    <?php foreach($equipment->history as $history) { ?>
+                    <?php foreach(array_reverse($equipment->history) as $history) { ?>
 
 
 

@@ -13,6 +13,7 @@ return [
         'edit',
         'delete',
         'create',
+        'test',
     ],
     'supervisor' => [
         'index',

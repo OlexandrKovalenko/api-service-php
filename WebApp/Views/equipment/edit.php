@@ -35,13 +35,14 @@ $modifications = $data['modifications'];
                                     <label for="type" class="form-label">Назва, тип, модифікація</label>
                                 </div>
                                 <div class="card-body">
-                                    <select class="form-select mb-3" id="type" aria-label="Default select example" name="type">
+                                    <input type="hidden" name="equipment_type_id" value="<?php echo $equipment->equipment_type_id ?>"/>
+                                    <select disabled class="form-select mb-3" id="type" aria-label="Default select example">
                                         <?php foreach($equipmentTypes as $type) {?>
                                             <option value="<?php echo $type->id;?>" <?php if($equipment->equipment_type_id == $type->id) echo 'selected';?>>
                                                 <?php echo $type->type;?></option>
                                         <?php }?>
                                     </select>
-                                    <select class="form-select" id="modification" aria-label="Default select example" name="modification">
+                                    <select class="form-select" id="modification" aria-label="Default select example" name="equipment_modification_id">
                                         <?php foreach($modifications as $mod) {?>
                                             <option value="<?php echo $mod->id;?>" <?php if($equipment->equipment_modification_id == $mod->id) echo 'selected';?>>
                                                 <?php echo $mod->modification;?></option>
@@ -56,7 +57,7 @@ $modifications = $data['modifications'];
                                     <label for="counterparty" class="form-label">Контрагент</label>
                                 </div>
                                 <div class="card-body">
-                                    <select class="form-select" id="counterparty" aria-label="Default select example"  name="counterparty">
+                                    <select class="form-select" id="counterparty" aria-label="Default select example"  name="counterparty_id">
                                         <?php foreach($counterparties as $counterparty) {?>
                                             <option value="<?php echo $counterparty->id;?>" <?php if($equipment->counterparty_id == $counterparty->id) echo 'selected';?>>
                                                 <?php echo $counterparty->name. ' / ' .$counterparty->full_name. ' / ' .$counterparty->counterparty_relation->name;?></option>
@@ -72,7 +73,7 @@ $modifications = $data['modifications'];
                                 </div>
                                 <div class="card-body">
                                     <p class="card-text text-center">
-                                        <select class="form-select" id="body" aria-label="Default select example"  name="body">
+                                        <select class="form-select" id="body" aria-label="Default select example"  name="body_id">
                                             <?php foreach($bodies as $body) {?>
                                                 <option value="<?php echo $body->id;?>" <?php if($equipment->body_id == $body->id) echo 'selected';?>>
                                                     <?php echo $body->inventory_number. ' /#' .$body->terminal->number. ' / ' .$body->bodytype->type. ' ' .$body->bodytype->diagonal.'"';?></option>
@@ -89,7 +90,7 @@ $modifications = $data['modifications'];
                                 </div>
                                 <div class="card-body">
                                     <p class="card-text text-center">
-                                        <select class="form-select" id="status" aria-label="Default select example"  name="status">
+                                        <select class="form-select" id="status" aria-label="Default select example"  name="equipment_status_id">
                                             <?php foreach($statuses as $status) {?>
                                                 <option value="<?php echo $status->id;?>" <?php if($equipment->equipment_status_id == $status->id) echo 'selected';?>>
                                                     <?php echo $status->status;?></option>

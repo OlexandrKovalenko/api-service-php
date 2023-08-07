@@ -43,8 +43,8 @@ class BodyController extends Controller {
     function createAction() {
         if($_POST){
             try {
-                $response = $this->api->sendRequest('POST', 'warehouse/body/create', $_POST);
-
+                $requestData = $this->dataHelper->formatRequest($_POST);
+                $response = $this->api->sendRequest('POST', 'warehouse/body/create', $requestData);
                 $this->view->redirect('/case/'.$response);
             } catch (ApiRequestException $e) {
                 echo 'Помилка запиту: ' . $e->getMessage();

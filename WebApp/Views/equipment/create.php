@@ -29,7 +29,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/backButton
                                     <select class="form-select mb-3" id="type" aria-label="Default select example" name="type" disabled hidden>
 
                                     </select>
-                                    <select class="form-select" id="modification" aria-label="Default select example" name="modification">
+                                    <select class="form-select" id="modification" aria-label="Default select example" name="equipment_modification_id">
                                         <?php $this->viewForms->selectOptions($selectFormOptions['modifications'], 'modifications')?>
                                     </select>
                                 </div>
@@ -41,7 +41,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/backButton
                                     <label for="counterparty" class="form-label">Контрагент</label>
                                 </div>
                                 <div class="card-body">
-                                    <select class="form-select" id="counterparty" aria-label="Default select example"  name="counterparty">
+                                    <select class="form-select" id="counterparty" aria-label="Default select example"  name="counterparty_id">
                                         <?php $this->viewForms->selectOptions($selectFormOptions['counterparties'], 'counterparties')?>
                                     </select>
                                 </div>
@@ -54,7 +54,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/backButton
                                 </div>
                                 <div class="card-body">
                                     <p class="card-text text-center">
-                                        <select class="form-select" id="body" aria-label="Default select example"  name="body">
+                                        <select class="form-select" id="body" aria-label="Default select example"  name="body_id">
                                             <?php $this->viewForms->selectOptions($selectFormOptions['bodies'], 'bodies')?>
                                         </select>
                                     </p>
@@ -68,7 +68,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/backButton
                                 </div>
                                 <div class="card-body">
                                     <p class="card-text text-center">
-                                        <select class="form-select" id="status" aria-label="Default select example"  name="status">
+                                        <select class="form-select" id="status" aria-label="Default select example"  name="equipment_status_id">
                                             <?php $this->viewForms->selectOptions($selectFormOptions['statuses'], 'statuses')?>
                                         </select>
                                 </div>

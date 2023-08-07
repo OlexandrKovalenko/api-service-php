@@ -37,6 +37,7 @@ class AuthController extends Controller {
             session_start();
             $_SESSION['authenticated'] = [
                 'id' => $user['id'],
+                'email' => $user['email'],
                 'token' => $user['token'],
                 'admin' => true
             ];
@@ -57,6 +58,7 @@ class AuthController extends Controller {
                     $user = $this->model->get(['email' => $email], 'first');
                     $_SESSION['authenticated'] = [
                         'id' => $user['id'],
+                        'email' => $user['email'],
                         'token' => $user['token'],
                         'admin' => true
                     ];

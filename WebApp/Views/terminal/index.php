@@ -7,7 +7,7 @@
                 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 
-                <a href="terminal/create" class="btn btn-success">Створити</a>
+                <a href="/terminal/create" class="btn btn-success">Створити</a>
                 </div>
             </div>
             <div class="card-body">
@@ -65,15 +65,15 @@
                     <?php foreach($terminals as $terminal) {?>
 
                   <tr <?php if(!$terminal->is_active) echo 'class="table-secondary table-row"'; ?> >
-                    <th scope="row"><?php echo '<a href="terminal/'.$terminal->id.'" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover table-cell-number">'.$terminal->number.'</a>';?></th>
-                    <td><?php echo '<a href="counterparty/'.$terminal->counterparty->id.'" class="link-underline-info">'.$terminal->counterparty->name.'</a>';?></td>
+                    <th scope="row"><?php echo '<a href="/terminal/'.$terminal->id.'" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover table-cell-number">'.$terminal->number.'</a>';?></th>
+                    <td><?php echo '<a href="/counterparty/'.$terminal->counterparty->id.'" class="link-underline-info">'.$terminal->counterparty->name.'</a>';?></td>
                     <td><?php echo $terminal->settlement->name?></td>
                     <td><?php echo $terminal->address;?></td>
                     <th><?php echo $terminal->phone;?></th>
                     <td>
                         <?php $var = $terminal->is_outdoor ? 'Вулиця' : 'Внутрішній';
 
-                            echo '<a href="case/'.$terminal->body[0]->id.'" class="link-underline-info">'.$terminal->body[0]->inventory_number.'</a>' .' / '. $var;
+                            echo '<a href="/case/'.$terminal->body[0]->id.'" class="link-underline-info">'.$terminal->body[0]->inventory_number.'</a>' .' / '. $var;
                         ?>
                     </td>
                   </tr>

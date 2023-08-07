@@ -33,7 +33,7 @@ $relations = $data['relations'];
                                     </div>
                                     <div class="mb-3">
                                         <label for="fullname" class="form-label">Повне ім`я / назва</label>
-                                        <input type="text" class="form-control" id="fullname" name="fullname" value="<?php echo  $counterparty->full_name;?>">
+                                        <input type="text" class="form-control" id="fullname" name="full_name" value="<?php echo  $counterparty->full_name;?>">
                                     </div>
                                 </div>
                             </div>
@@ -45,7 +45,7 @@ $relations = $data['relations'];
                                 <label for="relation" class="form-label">Тип відносин</label>
                                 </div>
                                 <div class="card-body">
-                                    <select class="form-select" id="relation" aria-label="Default select example" name="relation">
+                                    <select class="form-select" id="relation" aria-label="Default select example" name="counterparty_relation_id">
                                         <?php foreach($relations as $relation) {?>
                                             <option value="<?php echo $relation->id;?>" <?php if($counterparty->counterparty_relation_id == $relation->id) echo 'selected';?>>
                                                 <?php echo $relation->name;?></option>

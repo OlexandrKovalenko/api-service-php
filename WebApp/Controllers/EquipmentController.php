@@ -23,12 +23,12 @@ class EquipmentController extends Controller {
     function editAction() {
         if($_POST){
             try {
-                $user = $this->model->getUserById($_SESSION['authenticated']['id']);
-                $_POST += [
+                $requestData = $this->dataHelper->formatRequest($_POST);
+                $requestData += [
                     'id' => $this->route['id'],
-                    'user' => $user['email']
+                    'user' => $_SESSION['authenticated']['email'],
                 ];
-                $this->api->sendRequest('PUT', 'warehouse/equipment', $_POST, $this->route['id']);
+                $response = $this->api->sendRequest('PUT', 'warehouse/equipment', $requestData, $this->route['id']);
                 $this->view->redirect('/equipment/'.$this->route['id']);
             } catch (ApiRequestException $e) {
                 echo 'Помилка запиту: ' . $e->getMessage();
@@ -46,11 +46,11 @@ class EquipmentController extends Controller {
         if($_POST){
 
             try {
-                $user = $this->model->getUserById($_SESSION['authenticated']['id']);
-                $_POST += [
-                    'user' => $user['email']
+                $requestData = $this->dataHelper->formatRequest($_POST);
+                $requestData += [
+                    'user' => $_SESSION['authenticated']['email']
                 ];
-                $response = $this->api->sendRequest('POST', 'warehouse/equipment/store', $_POST);
+                $response = $this->api->sendRequest('POST', 'warehouse/equipment/store', $requestData);
                 $this->view->redirect('/equipment/'.$response);
             } catch (ApiRequestException $e) {
                 echo 'Помилка запиту: ' . $e->getMessage();
@@ -58,5 +58,17 @@ class EquipmentController extends Controller {
         }
         $selectFormOptions = $this->getSelectFormOptions(['counterparties', 'bodies', 'settlements', 'modifications', 'statuses']);
         $this->view->render('Додати обладнання', ['selectFormOptions' => $selectFormOptions]);
+    }
+
+    function testAction() {
+        $data = [
+            'id' => 1,
+            'equipment_type_id' => 2,
+            'email' => $_SESSION['authenticated']['email'],
+            'orderBy' => ['body_id']
+        ];
+        $response = $this->api->sendRequest('GET', 'warehouse/equipment.search', $data);
+        debug($response);
+
     }
 }

@@ -7,7 +7,7 @@
                 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 
-                <a href="equipment/create" class="btn btn-success">Створити</a>
+                <a href="/equipment/create" class="btn btn-success">Створити</a>
                 </div>
             </div>
             <div class="card-body">

@@ -22,7 +22,12 @@ class TerminalController extends Controller {
     function editAction() {
         if($_POST){
             try {
-                $this->api->sendRequest('PUT', 'warehouse/terminal', $_POST, $this->route['id']);
+                $requestData = $this->dataHelper->formatRequest($_POST);
+                $requestData += [
+                    'id' => $this->route['id'],
+                    'user' => $_SESSION['authenticated']['email'],
+                ];
+                $response = $this->api->sendRequest('PUT', 'warehouse/terminal', $requestData, $this->route['id']);
                 $this->view->redirect('/terminal/'.$this->route['id']);
             } catch (ApiRequestException $e) {
                 echo 'Помилка запиту: ' . $e->getMessage();
@@ -32,7 +37,7 @@ class TerminalController extends Controller {
         $response = $this->api->sendGetRequest('warehouse/terminal/'.$this->route['id']);
         $data['terminal'] = $this->dataHelper->normalizeData(json_decode($response))[0];
 
-        $data += $this->getSelectFormOptions(['counterparties', 'bodies', 'settlement']);
+        $data += $this->getSelectFormOptions(['counterparties', 'bodies', 'settlements']);
 
         $this->view->render('Редагування: '.$data['terminal']->number,['data' => $data]);
     }
@@ -40,7 +45,7 @@ class TerminalController extends Controller {
     function activateAction() {
         if($_POST){
             try {
-                $this->api->sendRequest('PUT', 'warehouse/terminal', $_POST, $this->route['id']);
+                $response = $this->api->sendRequest('POST', 'warehouse/terminal/activate', [], $this->route['id']);
                 $this->view->redirect('/terminal/'.$this->route['id']);
             } catch (ApiRequestException $e) {
                 echo 'Помилка запиту: ' . $e->getMessage();
@@ -51,7 +56,13 @@ class TerminalController extends Controller {
     function createAction() {
         if($_POST){
             try {
-                $response = $this->api->sendRequest('POST', 'warehouse/terminal/create', $_POST);
+                $requestData = $this->dataHelper->formatRequest($_POST);
+                $requestData += [
+                    'user' => $_SESSION['authenticated']['email'],
+                ];
+
+                $response = $this->api->sendRequest('POST', 'warehouse/terminal/create', $requestData);
+
                 $this->view->redirect('/terminal/'.$response);
             } catch (ApiRequestException $e) {
                 echo 'Помилка запиту: ' . $e->getMessage();

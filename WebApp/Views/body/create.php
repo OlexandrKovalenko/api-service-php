@@ -25,7 +25,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/backButton
                                     <label for="terminal" class="form-label">Термінал</label>
                                 </div>
                                 <div class="card-body">
-                                    <select class="form-select" id="terminal" aria-label="Default select example" name='terminal'>
+                                    <select class="form-select" id="terminal" aria-label="Default select example" name='terminal_id'>
                                         <?php $this->viewForms->selectOptions($selectFormOptions['terminals'], 'terminals')?>
                                     </select>
                                 </div>
@@ -37,7 +37,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/backButton
                                     <label for="type" class="form-label">Тип корпусу</label>
                                 </div>
                                 <div class="card-body">
-                                    <select class="form-select" id="type" aria-label="Default select example" name='type'>
+                                    <select class="form-select" id="type" aria-label="Default select example" name='body_type_id'>
                                         <?php $this->viewForms->selectOptions($selectFormOptions['bodytypes'], 'bodytypes')?>
                                     </select>
                                 </div>

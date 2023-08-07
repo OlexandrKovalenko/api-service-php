@@ -31,7 +31,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/backButton
                                     </div>
                                     <div class="mb-3">
                                         <label for="fullname" class="form-label">Повне ім`я / назва</label>
-                                        <input type="text" class="form-control" id="fullname" name="fullname">
+                                        <input type="text" class="form-control" id="fullname" name="full_name">
                                     </div>
                                 </div>
                             </div>
@@ -43,7 +43,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/backButton
                                 <label for="relation" class="form-label">Тип відносин</label>
                                 </div>
                                 <div class="card-body">
-                                    <select class="form-select" id="relation" aria-label="Default select example" name="relation">
+                                    <select class="form-select" id="relation" aria-label="Default select example" name="counterparty_relation_id">
                                     <?php $this->viewForms->selectOptions($selectFormOptions['relations'], 'relations')?>
                                     </select>
                                 </div>

@@ -28,7 +28,7 @@ $bodytypes = $data['bodytype'];
                                     <label for="terminal" class="form-label">Термінал</label>
                                 </div>
                                 <div class="card-body">
-                                    <select class="form-select" id="terminal" aria-label="Default select example" name='terminal'>
+                                    <select class="form-select" id="terminal" aria-label="Default select example" name='terminal_id'>
                                         <?php foreach($terminals as $terminal) {?>
                                             <option value="<?php echo $terminal->id;?>" <?php if($body->terminal_id == $terminal->id) echo 'selected';?>>
                                                 <?php echo $terminal->number;?></option>
@@ -43,7 +43,7 @@ $bodytypes = $data['bodytype'];
                                     <label for="type" class="form-label">Тип корпусу</label>
                                 </div>
                                 <div class="card-body">
-                                    <select class="form-select" id="type" aria-label="Default select example" name='type'>
+                                    <select class="form-select" id="type" aria-label="Default select example" name='body_type_id'>
                                         <?php foreach($bodytypes as $bodytype) {?>
                                             <option value="<?php echo $bodytype->id;?>" <?php if($body->body_type_id == $bodytype->id) echo 'selected';?>>
                                                 <?php echo $bodytype->type. ' / ' .$bodytype->diagonal. '"';?></option>

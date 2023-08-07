@@ -3,7 +3,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/header.php
 include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/backButton.php');
 $terminal = $data['terminal'];
 $bodies = $data['bodies'];
-$settlements = $data['settlement'];
+$settlements = $data['settlements'];
 $counterparties = $data['counterparties'];
 ?>
 <div class="wrapper m-5">
@@ -32,7 +32,7 @@ $counterparties = $data['counterparties'];
                                     <label for="settlement" class="form-label">Регіон \ Місто \ Село</label>
                                 </div>
                                 <div class="card-body">
-                                    <select class="form-select" id="type" aria-label="Default select example" name='settlement'>
+                                    <select class="form-select" id="type" aria-label="Default select example" name='settlement_id'>
                                         <?php foreach($settlements as $settlement) {?>
                                             <option value="<?php echo $settlement->id;?>" <?php if($terminal->settlement_id == $settlement->id) echo 'selected';?>>
                                                 <?php echo $settlement->name. ' / ' .$settlement->region->name;?></option>
@@ -57,7 +57,7 @@ $counterparties = $data['counterparties'];
                                     <label for="counterparty" class="form-label">Контрагент</label>
                                 </div>
                                 <div class="card-body">
-                                    <select class="form-select" id="counterparty" aria-label="Default select example" name='counterparty'>
+                                    <select class="form-select" id="counterparty" aria-label="Default select example" name='counterparty_id'>
                                         <?php foreach($counterparties as $counterparty) {?>
                                             <option value="<?php echo $counterparty->id;?>" <?php if($terminal->counterparty_id == $counterparty->id) echo 'selected';?>>
                                                 <?php echo $counterparty->name. ' / ' .$counterparty->full_name. ' / ' .$counterparty->counterparty_relation->name;?></option>
@@ -114,7 +114,7 @@ $counterparties = $data['counterparties'];
                                 <label for="body" class="form-label">Корпус</label>
                                 </div>
                                 <div class="card-body">
-                                    <select class="form-select" id="body" aria-label="Default select example" name='body'>
+                                    <select class="form-select" id="body" aria-label="Default select example" name='body_id'>
                                         <?php foreach($bodies as $body) {?>
                                             <option value="<?php echo $body->id;?>" <?php if($terminal->body[0]->id == $body->id) echo 'selected';?>>
                                                 <?php echo $body->inventory_number. ' / ' .$body->bodytype->type. ' ' .$body->bodytype->diagonal.'"';?></option>

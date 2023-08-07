@@ -56,6 +56,10 @@ return [
         'controller' => 'equipment',
         'action' => 'create'
     ],
+    'equipment/test' => [
+        'controller' => 'equipment',
+        'action' => 'test'
+    ],
 
 // BodyController
     'case' => [

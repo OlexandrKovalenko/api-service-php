@@ -19,13 +19,23 @@ include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/backButton
                 </div>
                 <div class="card-body">
                     <div class="row mb-3">
-                        <div class="col-md-4">
+                        <div class="col-md-2">
+                            <div class="card">
+                                <div class="card-header">
+                                    <label for="number" class="form-label">Номер</label>
+                                </div>
+                                <div class="card-body">
+                                    <input type="text" class="form-control" id="number"  name='number'>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
                             <div class="card">
                                 <div class="card-header">
                                     <label for="settlement" class="form-label">Регіон \ Місто \ Село</label>
                                 </div>
                                 <div class="card-body">
-                                    <select class="form-select" id="type" aria-label="Default select example" name='settlement'>
+                                    <select class="form-select" id="type" aria-label="Default select example" name='settlement_id'>
                                         <?php $this->viewForms->selectOptions($selectFormOptions['settlements'], 'settlements')?>
                                     </select>
                                 </div>
@@ -47,7 +57,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/backButton
                                     <label for="counterparty" class="form-label">Контрагент</label>
                                 </div>
                                 <div class="card-body">
-                                    <select class="form-select" id="counterparty" aria-label="Default select example" name='counterparty'>
+                                    <select class="form-select" id="counterparty" aria-label="Default select example" name='counterparty_id'>
                                         <?php $this->viewForms->selectOptions($selectFormOptions['counterparties'], 'counterparties')?>
                                     </select>
                                 </div>
@@ -93,7 +103,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/backButton
                                 <label for="body" class="form-label">Корпус</label>
                                 </div>
                                 <div class="card-body">
-                                    <select class="form-select" id="body" aria-label="Default select example" name='body'>
+                                    <select class="form-select" id="body" aria-label="Default select example" name='body_id'>
                                         <?php $this->viewForms->selectOptions($selectFormOptions['bodies'], 'bodies')?>
                                     </select>
                                 </div>

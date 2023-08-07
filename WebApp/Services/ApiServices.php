@@ -73,7 +73,6 @@ class ApiServices {
                     'Authorization' => 'Bearer ' . $this->token,
                 ],
             ];
-
             if ($method === 'GET') {
                 $options[RequestOptions::QUERY] = $data;
             } else {
