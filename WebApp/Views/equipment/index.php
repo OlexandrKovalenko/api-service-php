@@ -65,12 +65,12 @@
                     <?php foreach($equipments as $equipment) {?>
 
                   <tr>
-                    <th scope="row"><?php echo '<a href="equipment/'.$equipment->id.'" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover table-cell-number">'.$equipment->inventory_number.'</a>';?></th>
+                    <th scope="row"><?php echo '<a href="/equipment/'.$equipment->id.'" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover table-cell-number">'.$equipment->inventory_number.'</a>';?></th>
                     <td><?php echo $equipment->equipment_type->type .' / '. $equipment->equipment_modification->modification ?></td>
                     <td><?php echo $equipment->equipment_status->status;?></td>
-                    <td><?php echo '<a href="counterparty/'.$equipment->counterparty->id.'" class="link-underline-info">'.$equipment->counterparty->name.'</a>';?></td>
-                    <th><?php echo '<a href="body/'.$equipment->body->id.'" class="link-underline-info">'.$equipment->body->inventory_number.'</a> / 
-                    <a href="terminal/'.$equipment->body->terminal->id.'" class="link-underline-info">'.$equipment->body->terminal->number.'</a>';?></th>
+                    <td><?php echo '<a href="/counterparty/'.$equipment->counterparty->id.'" class="link-underline-info">'.$equipment->counterparty->name.'</a>';?></td>
+                    <th><?php echo '<a href="/body/'.$equipment->body->id.'" class="link-underline-info">'.$equipment->body->inventory_number.'</a> / 
+                    <a href="/terminal/'.$equipment->body->terminal->id.'" class="link-underline-info">'.$equipment->body->terminal->number.'</a>';?></th>
 
                   </tr>
                   <?php }; ?>
