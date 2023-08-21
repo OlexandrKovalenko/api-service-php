@@ -14,6 +14,6 @@
 
   <script src="../../../public/scripts/bootstrap.bundle.min.js"></script>
   <script src="../../../public/scripts/main-search.js"></script>
-  <!-- <script src="../../../public/scripts/table-search.js"></script> -->
+  <script src="../../../public/scripts/table-search.js"></script>
 </body>
 </html>
