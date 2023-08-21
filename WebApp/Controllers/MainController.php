@@ -8,7 +8,8 @@ class MainController extends Controller {
 
     function indexAction() {
         $history = $this->api->sendGetRequest('warehouse/main');
-        $this->view->render('Головна',['history' => json_decode($history)]);
+        $invData = json_decode(require 'WebApp/res/inv.php');
+        $this->view->render('Головна',['history' => json_decode($history), 'dataVerification' => $invData->list]);
     }
 
     function mainSearchAction() {
