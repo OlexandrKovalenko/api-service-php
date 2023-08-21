@@ -23,7 +23,13 @@ class BodyController extends Controller {
     function editAction() {
         if($_POST){
             try {
-                $this->api->sendRequest('PUT', 'warehouse/body', $_POST, $this->route['id']);
+                $requestData = $this->dataHelper->formatRequest($_POST);
+                $requestData += [
+                    'id' => $this->route['id'],
+                    'user' => $_SESSION['authenticated']['email'],
+                ];
+                $resp = $this->api->sendRequest('PUT', 'warehouse/body', $requestData, $this->route['id']);
+                
                 $this->view->redirect('/case/'.$this->route['id']);
             } catch (ApiRequestException $e) {
                 echo 'Помилка запиту: ' . $e->getMessage();

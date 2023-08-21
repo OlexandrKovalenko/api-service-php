@@ -5,6 +5,11 @@ return [
         'controller' => 'main',
         'action' => 'index'
     ],
+    'search' => [
+        'controller' => 'main',
+        'action' => 'mainSearch'
+    ],
+
     'login' => [
         'controller' => 'auth',
         'action' => 'login'
@@ -17,6 +22,7 @@ return [
         'controller' => 'auth',
         'action' => 'logout'
     ],
+
 // TerminalController
     'terminal' => [
         'controller' => 'terminal',

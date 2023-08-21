@@ -10,4 +10,8 @@ class MainController extends Controller {
         $history = $this->api->sendGetRequest('warehouse/main');
         $this->view->render('Головна',['history' => json_decode($history)]);
     }
+
+    function mainSearchAction() {
+        debug($_POST['input_data']);
+    }
 }

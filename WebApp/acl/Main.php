@@ -1,17 +1,20 @@
 <?php
-
+//actions
 return [
     'authorise' => [
         'index',
-        'logout'
+        'logout',
+        'mainSearch'
     ],
     'admin' => [
         'index',
-        'logout'
+        'logout',
+        'mainSearch'
     ],
     'supervisor' => [
         'index',
-        'logout'
+        'logout',
+        'mainSearch'
     ],
     'guest' => [
     ],
