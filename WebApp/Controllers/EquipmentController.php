@@ -15,9 +15,8 @@ class EquipmentController extends Controller {
 
     function showAction() {
         $response = $this->api->sendGetRequest('warehouse/equipment/'.$this->route['id']);
-        $data = $this->dataHelper->normalizeData(json_decode($response));
-
-        $this->view->render('Устаткування: '.$data[0]->inventory_number,['equipment' => $data[0]]);
+        $data = json_decode($response);
+        $this->view->render('Устаткування: '.$data->{0}->inventory_number,['equipment' => $data->{0}, 'history' => $data->history]);
     }
 
     function editAction() {
@@ -35,11 +34,12 @@ class EquipmentController extends Controller {
             }
         }
         $response = $this->api->sendGetRequest('warehouse/equipment/'.$this->route['id']);
-        $data['equipment'] = json_decode($response)[0];
-
+        $responseData = json_decode($response);
+        $data['equipment'] = $responseData->{0};
+        $data['history'] = $responseData->history;
         $data += $this->getSelectFormOptions(['counterparties', 'bodies', 'statuses', 'equipmentTypes', 'modifications']);
 
-        $this->view->render('Редагування: '.$data['equipment']->inventory_number,['data' => $data]);
+        $this->view->render('Редагування: '.$data['equipment']->inventory_number,['data' => $data, 'history' => $data['history']]);
     }
 
     function createAction() {

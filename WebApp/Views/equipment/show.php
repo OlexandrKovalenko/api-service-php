@@ -1,4 +1,6 @@
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/header.php')?>
+<?php 
+include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/header.php');
+?>
 <div class="wrapper m-5">
     <div class="content">
         <div class="filter card border
@@ -97,30 +99,27 @@
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                    <?php foreach(array_reverse($equipment->history) as $history) { ?>
-
-
-
+                    <?php foreach($history as $row) {?>
                     <tr>
                     <th scope="row">
-                        <?php if(isset($history->body_id)){?>
-                            <a href="/case/<?php echo $history->body_id;?>" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
-                            <?php echo $history->body->inventory_number;?>
+                        <?php if(isset($row->body_id)){?>
+                            <a href="/case/<?php echo $row->body_id;?>" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
+                            <?php echo $row->body->inventory_number;?>
                         </a>
                         <?php } else '-'?>
                     </th>
                     <td>
-                        <?php if(isset($history->counterparty_id)){?>
-                            <a href="/body/<?php echo $history->counterparty_id;?>" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
-                            <?php echo $history->counterparty->name;?>
+                        <?php if(isset($row->counterparty_id)){?>
+                            <a href="/body/<?php echo $row->counterparty_id;?>" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
+                            <?php echo $row->counterparty->name;?>
                         </a>
                         <?php } else '-'?>
                     </td>
                     <td>
-                    <?php echo $history->description;?>
+                    <?php echo $row->description;?>
                     </td>
                     <td>
-                    <?php $dateTime = new DateTime($history->updated_at); echo $dateTime->format('Y-m-d H:i:s'). ' ('.$history->user->name.')';?>
+                    <?php $dateTime = new DateTime($row->updated_at); echo $dateTime->format('Y-m-d H:i:s'). ' ('.$row->user->name.')';?>
                     </td>
                     </tr>
 
