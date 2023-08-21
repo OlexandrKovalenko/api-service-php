@@ -104,14 +104,14 @@
                     <tr>
                     <th scope="row">
                         <?php if(isset($history->body_id)){?>
-                            <a href="/body/.<?php echo $history->body_id;?>" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
+                            <a href="/case/<?php echo $history->body_id;?>" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
                             <?php echo $history->body->inventory_number;?>
                         </a>
                         <?php } else '-'?>
                     </th>
                     <td>
                         <?php if(isset($history->counterparty_id)){?>
-                            <a href="/body/.<?php echo $history->counterparty_id;?>" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
+                            <a href="/body/<?php echo $history->counterparty_id;?>" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
                             <?php echo $history->counterparty->name;?>
                         </a>
                         <?php } else '-'?>
