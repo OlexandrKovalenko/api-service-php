@@ -1,4 +1,5 @@
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/header.php');
+<?php 
+include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/header.php');
 ?>
 <div class="wrapper m-5">
     <div class="content">

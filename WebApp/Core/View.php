@@ -8,11 +8,13 @@ class View {
     public $path;
     public $layout = 'default';
     public $viewForms;
+    public $menu;
 
     function __construct($route) {
         $this->route = $route;
         $this->path = $route['controller'] . '/' . $route['action'];
         $this->viewForms = new ViewFormsHelper();
+        $this->menu = require 'WebApp/Config/menu.php';
     }
 
     function render($title, $vars = []) {
