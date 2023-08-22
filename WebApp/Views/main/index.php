@@ -19,14 +19,17 @@
                         <thead>
                             <tr>
                                 <th class="col-2" scope="col">#</th>
-                                <th class="col-8" scope="col">Опис</th>
+                                <th class="col-2" scope="col">Контрагент</th>
+                                <th class="col-6" scope="col">Опис</th>
                                 <th class="col-2" scope="col">Дата</th>
                             </tr>
                         </thead>
                         <tbody class="table-group-divider table-body">
                             <?php foreach($history as $row) {?>
                             <th scope="row">
-                                <?php echo '<a href="/equipment/'.$row->equipment_id.'" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover table-cell-number">'.$row->equipment->inventory_number.'</a>';?>
+                                <?php 
+                                echo '<a href="/equipment/'.$row->equipment_id.'" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover table-cell-number">'.$row->equipment->inventory_number.'</a>';
+                                ?>
                                 <i class="bi bi-arrow-right"></i>
                                 <?php 
                                     echo '<a href="/case/'.$row->body_id.'" class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover table-cell-number">'.$row->body->inventory_number.'</a>';
@@ -34,6 +37,12 @@
                                         echo ' / <a href="/terminal/'.$row->body->terminal_id.'" class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover table-cell-number">'.$row->body->terminal->number.'</a>';
                                 ?>
                             </th>
+                            <td>
+                                <i class="bi bi-arrow-right"></i>
+                                <?php 
+                                echo '<a href="/counterparty/'.$row->counterparty_id.'" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover table-cell-number">'.$row->counterparty->name.'</a>';
+                                ?>
+                            </td>
                             <td><?php echo $row->description;?></td>
                             <td>
                             <?php $dateTime = new DateTime($row->updated_at); echo $dateTime->format('Y-m-d H:i:s'). ' (<span class="text-success">'.$row->user->name.'</span>)';?>
