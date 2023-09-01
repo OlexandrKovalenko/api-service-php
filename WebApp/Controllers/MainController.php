@@ -13,6 +13,13 @@ class MainController extends Controller {
     }
 
     function mainSearchAction() {
-        debug($_POST['input_data']);
+        $response = $this->api->sendRequest('GET', 'warehouse/search', $_POST);
+        //debug(json_decode($response));
+        $responseAjax = array(
+            "status" => "200",
+            "data" => 123
+        );
+        header("Content-Type: application/json");
+        echo json_encode($response);
     }
 }

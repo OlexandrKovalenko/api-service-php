@@ -28,3 +28,29 @@ body,
 .hide {
   display: none;
 }
+
+#search {
+  position: relative;
+}
+
+#global-search-list {
+  height: auto;
+  position: absolute;
+  padding: 5px;
+  width: 150%;
+  top: 110%;
+  left: 0;
+  z-index: 1111;
+  opacity: 0;
+  transition: opacity 0.5s;
+  display: none;
+}
+
+#global-search-list.active {
+  display: block;
+  opacity: 1;
+}
+
+#global-search-list .row div {
+  padding: 10px 10px;
+}

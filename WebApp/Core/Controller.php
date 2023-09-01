@@ -31,6 +31,7 @@ class Controller {
         if (method_exists($this, 'before')) {
             
         }
+        
     }
 
     public function loadModel($name) {
