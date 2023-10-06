@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="uk">
 <head>
     <title><?php echo $title ?></title>
     <link rel="stylesheet" href="../../../public/styles/bootstrap-reboot.min.css">
