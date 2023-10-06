@@ -3,19 +3,64 @@ include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/header.php
 ?>
 <div class="wrapper m-5">
     <div class="content">
-        <div class="card">
+        <div class="card dashboard mb-5">
             <div class="card-header">
-                <ul class="nav nav-underline">
+                <ul class="nav nav-underline dashboardTabs">
                     <li class="nav-item">
-                        <a class="nav-link  active" aria-current="page" href="#historySection">Історія</a>
+                        <a class="nav-link active" aria-current="page" href="#cardsTab" data-bs-toggle="tab">Сумарна інформація</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#dataVerificationSection">Дані для перевірки</a>
+                        <a class="nav-link" href="#graphsTab" data-bs-toggle="tab">Графіки</a>
                     </li>
                 </ul>
             </div>
-            <div class="card-body" id="historySection">
-                <div class="row">
+            <div class="card-body tab-content">
+                <div class="container-fluid tab-pane active" id="cardsTab">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card bg-info bg-gradient border-2 border-primary-subtle border-opacity-50" style="--bs-bg-opacity: .5;">
+                                <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                                    <p class="card-text ">Всього терміналів: <?php echo $dashboard->terminals?></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card bg-info bg-gradient" style="--bs-bg-opacity: .5;">
+                                <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                                    <p class="card-text">Кількість обладнання: <?php echo $dashboard->equipments?></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card bg-info bg-gradient" style="--bs-bg-opacity: .5;">
+                                <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                                    <p class="card-text">Всього корпусів: <?php echo $dashboard->bodies?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row tab-pane" id="graphsTab">
+                    321
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <ul class="nav nav-underline mainTabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#historyTab" data-bs-toggle="tab">Історія</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#dataVerificationTab" data-bs-toggle="tab">Дані для перевірки</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="tab" disabled>Link</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body tab-content">
+                <div class="row tab-pane active" id="historyTab">
                     <table class="table table-hover table-bordered">
                         <thead>
                             <tr>
@@ -53,21 +98,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/header.php
                         </tbody>
                     </table>
                 </div>
-            </div>
-        </div>
-        <div class="card mt-3" id="dataVerificationSection">
-            <div class="card-header">
-                <ul class="nav nav-underline">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#historySection">Історія</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#dataVerificationSection">Дані для перевірки</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="card-body">
-                <div class="row">
+                <div class="row tab-pane" id="dataVerificationTab">
                     <table class="table table-hover table-bordered">
                         <thead>
                             <tr>

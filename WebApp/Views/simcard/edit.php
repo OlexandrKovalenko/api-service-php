@@ -1,35 +1,63 @@
 <?php 
 include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/header.php');
 include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/backButton.php');
+$bodies = $selectFormOptions['bodies'];
+$statuses = $selectFormOptions['statuses'];
+
 ?>
 <div class="wrapper m-5">
     <div class="content">
-    <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="POST">
-            <div class="filter card border">
+        <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="POST">
+            <div class="filter card">
                 <div class="card-header d-flex align-items-center">
-                    <a href="<?php backButton('/equipment'); ?>">
+                    <a href="<?php backButton('/sim-card/'.$simdata->id); ?>">
                     <i class="bi bi-arrow-left-square h3 me-3 text-info btn btn-outline-secondary"></i>
                     </a>
-                    <p class="mb-0 flex-grow-1 h3"><?php echo $title;?></p>
-                    
+                    <p class="mb-0 flex-grow-1"><?php echo $title;?></p>
+                        
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    
-                    <button type="submit" class="btn btn-success">Зберегти</button>
+                        <button type="submit" class="btn btn-success">Зберегти</button>
                     </div>
                 </div>
-                <div class="card-body">
-                    <div class="row mb-3">
-                        <div class="col-md-3">
-                            <div class="card">
-                                <div class="card-header">
-                                    <label for="type" class="form-label">Назва, тип, модифікація</label>
-                                </div>
-                                <div class="card-body">
-                                    <select class="form-select mb-3" id="type" aria-label="Default select example" name="type" disabled hidden>
 
-                                    </select>
-                                    <select class="form-select" id="modification" aria-label="Default select example" name="equipment_modification_id">
-                                        <?php $this->viewForms->selectOptions($selectFormOptions['modifications'], 'modifications')?>
+                <div class="card-body">
+                    <div class="row mb-3 d-flex align-items-center">
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-header">
+                                    <label for="number" class="form-label">Sim Номер</label>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <input type="text" class="form-control" id="number" name="number" value="<?php echo $simdata->number?>">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-header">
+                                <label for="icc" class="form-label">ICC</label>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                    <input type="text" class="form-control" id="icc" name="icc" value="<?php echo $simdata->icc?>">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-header">
+                                    <label for="phone" class="form-label">Корпус</label>
+                                </div>
+                                <div class="card-body">
+                                    <select class="form-select" id="body" aria-label="Default select example"  name="body_id">
+                                            <?php foreach($bodies as $body) {?>
+                                                <option value="<?php echo $body->id;?>" <?php if($simdata->body_id == $body->id) echo 'selected';?>>
+                                                    <?php echo $body->inventory_number. ' /#' .$body->terminal->number;?></option>
+                                            <?php }?>
                                     </select>
                                 </div>
                             </div>
@@ -37,39 +65,17 @@ include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/backButton
                         <div class="col-md-3">
                             <div class="card">
                                 <div class="card-header">
-                                    <label for="counterparty" class="form-label">Контрагент</label>
+                                    <label for="phone" class="form-label">Статус</label>
                                 </div>
                                 <div class="card-body">
-                                    <select class="form-select" id="counterparty" aria-label="Default select example"  name="counterparty_id">
-                                        <?php $this->viewForms->selectOptions($selectFormOptions['counterparties'], 'counterparties')?>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card">
-                                <div class="card-header">
-                                    <label for="body" class="form-label">Корпус / Термінал</label>
-                                </div>
-                                <div class="card-body">
-                                    <p class="card-text text-center">
-                                        <select class="form-select" id="body" aria-label="Default select example"  name="body_id">
-                                            <?php $this->viewForms->selectOptions($selectFormOptions['bodies'], 'bodies')?>
-                                        </select>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card">
-                                <div class="card-header">
-                                    <label for="status" class="form-label">Статус</label>
-                                </div>
-                                <div class="card-body">
-                                    <p class="card-text text-center">
+                                    <div class="mb-3">
                                         <select class="form-select" id="status" aria-label="Default select example"  name="equipment_status_id">
-                                            <?php $this->viewForms->selectOptions($selectFormOptions['statuses'], 'statuses')?>
+                                            <?php foreach($statuses as $status) {?>
+                                                <option value="<?php echo $status->id;?>" <?php if($simdata->equipment_status_id == $status->id) echo 'selected';?>>
+                                                    <?php echo $status->status;?></option>
+                                            <?php }?>
                                         </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -82,7 +88,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/backButton
                                 </div>
                                 <div class="card-body">
                                     <div class="mb-3">
-                                        <textarea rows="3" type="tex" class="form-control" id="description"  name="description"></textarea>
+                                        <textarea name="description" rows="3" type="tex" class="form-control" id="description"><?php echo $simdata->description;?></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -90,6 +96,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/backButton
                     </div>
                 </div>
             </div>
+            
         </form>
     </div>
 </div>

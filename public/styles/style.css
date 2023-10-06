@@ -25,6 +25,15 @@ body,
   border-top-right-radius: 0;
 }
 
+.wrapper {
+  margin: 25px;
+}
+
+footer {
+  display: block;
+  min-height: 50px;
+}
+
 .hide {
   display: none;
 }
@@ -53,4 +62,13 @@ body,
 
 #global-search-list .row div {
   padding: 10px 10px;
+}
+
+#cardsTab .card {
+  min-height: 150px;
+  min-width: 100%;
+}
+
+.pagination .page-item {
+  cursor: pointer;
 }

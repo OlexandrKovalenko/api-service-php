@@ -12,8 +12,13 @@
 
   <?php echo $content ?>
 
+  <footer>
+    
+  </footer>
   <script src="../../../public/scripts/bootstrap.bundle.min.js"></script>
+  <script src="../../../public/scripts/script.js"></script>
   <script src="../../../public/scripts/main-search.js"></script>
   <script src="../../../public/scripts/table-search.js"></script>
+  <script src="../../../public/scripts/table-pagination.js"></script>
 </body>
 </html>

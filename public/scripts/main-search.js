@@ -47,7 +47,7 @@ $(document).ready(function() {
                                 hintListDiv.appendChild(spanElement);
                                 hintRowDiv.appendChild(hintListDiv);
                             }
-                          }
+                        }
                     }
                     else {
                     }

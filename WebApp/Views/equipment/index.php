@@ -50,7 +50,7 @@
                     <input type="text" class="form-control table-search" placeholder="Пошук...">
                 </div>
             </div>
-            <table class="table table-hover table-bordered">
+            <table id="table" class="table table-hover table-bordered">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
@@ -76,6 +76,9 @@
                   <?php }; ?>
                 </tbody>
               </table>
+                <?php 
+                  include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/mainTablePagination.php');
+                ?>
         </div>
     </div>
 </div>

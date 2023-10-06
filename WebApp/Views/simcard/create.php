@@ -18,38 +18,32 @@ include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/backButton
                     </div>
                 </div>
                 <div class="card-body">
-                    <div class="row mb-3">
-                        <div class="col-md-3">
-                            <div class="card">
-                                <div class="card-header">
-                                    <label for="type" class="form-label">Назва, тип, модифікація</label>
-                                </div>
-                                <div class="card-body">
-                                    <select class="form-select mb-3" id="type" aria-label="Default select example" name="type" disabled hidden>
 
-                                    </select>
-                                    <select class="form-select" id="modification" aria-label="Default select example" name="equipment_modification_id">
-                                        <?php $this->viewForms->selectOptions($selectFormOptions['modifications'], 'modifications')?>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="row mb-3 d-flex justify-content-between">
                         <div class="col-md-3">
                             <div class="card">
                                 <div class="card-header">
-                                    <label for="counterparty" class="form-label">Контрагент</label>
+                                    <label for="type" class="form-label">Номер Sim</label>
                                 </div>
                                 <div class="card-body">
-                                    <select class="form-select" id="counterparty" aria-label="Default select example"  name="counterparty_id">
-                                        <?php $this->viewForms->selectOptions($selectFormOptions['counterparties'], 'counterparties')?>
-                                    </select>
+                                    <input type="text" class="form-control" id="number" name="number">
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="card">
                                 <div class="card-header">
-                                    <label for="body" class="form-label">Корпус / Термінал</label>
+                                    <label for="counterparty" class="form-label">ICC Sim</label>
+                                </div>
+                                <div class="card-body">
+                                    <input type="text" class="form-control" id="icc" name="icc">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-header">
+                                    <label for="body" class="form-label">Корпус</label>
                                 </div>
                                 <div class="card-body">
                                     <p class="card-text text-center">
@@ -57,19 +51,6 @@ include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/backButton
                                             <?php $this->viewForms->selectOptions($selectFormOptions['bodies'], 'bodies')?>
                                         </select>
                                     </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card">
-                                <div class="card-header">
-                                    <label for="status" class="form-label">Статус</label>
-                                </div>
-                                <div class="card-body">
-                                    <p class="card-text text-center">
-                                        <select class="form-select" id="status" aria-label="Default select example"  name="equipment_status_id">
-                                            <?php $this->viewForms->selectOptions($selectFormOptions['statuses'], 'statuses')?>
-                                        </select>
                                 </div>
                             </div>
                         </div>

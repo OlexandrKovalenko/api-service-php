@@ -7,18 +7,14 @@ use WebApp\Core\Controller;
 class MainController extends Controller {
 
     function indexAction() {
-        $history = $this->api->sendGetRequest('warehouse/main');
+        $mainPagedata = $this->api->sendGetRequest('warehouse/main');
+        $mainPagedata = json_decode($mainPagedata);
         $invData = json_decode(require 'WebApp/res/inv.php');
-        $this->view->render('Головна',['history' => json_decode($history), 'dataVerification' => $invData->list]);
+        $this->view->render('Головна',['dashboard' => $mainPagedata->dashboard, 'history' => $mainPagedata->lastTwentyRecords, 'dataVerification' => $invData->list]);
     }
 
     function mainSearchAction() {
         $response = $this->api->sendRequest('GET', 'warehouse/search', $_POST);
-        //debug(json_decode($response));
-        $responseAjax = array(
-            "status" => "200",
-            "data" => 123
-        );
         header("Content-Type: application/json");
         echo json_encode($response);
     }

@@ -12,7 +12,7 @@
             <h1 class="display-1 fw-bold">403</h1>
             <p class="fs-3"> <span class="text-danger">Вийди звідси, розбійник ти!</span> </p>
             <p class="lead">
-            Доступ заборонено!  <span class="h3 text-danger"><strong>!</strong></span>
+            Доступ заборонено <a href="/login" style="text-decoration: none;"><span class="h3 text-danger"><strong>!</strong></span></a>
             </p>
             <a href="/" class="btn btn-outline-primary">На головну</a>
         </div>

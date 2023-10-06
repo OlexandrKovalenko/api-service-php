@@ -52,6 +52,9 @@ class DataHelper {
             'equipment_status_id' => fn($value) => ['equipment_status_id' => $value],
             'body_id' => fn($value) => ['body_id' => $value],
 
+            //sim
+            'icc' => fn($value) => ['icc' => $value],
+
             'id' => fn($value) => ['id' => $value],
             'phone' => fn($value) => ['phone' => $value],
             'description' => fn($value) => ['description' => $value],
