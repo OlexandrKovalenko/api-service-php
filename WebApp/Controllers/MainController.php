@@ -10,7 +10,13 @@ class MainController extends Controller {
         $mainPagedata = $this->api->sendGetRequest('warehouse/main');
         $mainPagedata = json_decode($mainPagedata);
         $invData = json_decode(require 'WebApp/res/inv.php');
-        $this->view->render('Головна',['dashboard' => $mainPagedata->dashboard, 'history' => $mainPagedata->lastTwentyRecords, 'dataVerification' => $invData->list]);
+        $oldSim = json_decode(require 'WebApp/res/oldSim.php');
+        $this->view->render('Головна', [
+            'dashboard' => $mainPagedata->dashboard, 
+            'history' => $mainPagedata->lastTwentyRecords, 
+            'dataVerification' => $invData->list, 
+            'oldSim' => $oldSim->sim
+        ]);
     }
 
     function mainSearchAction() {

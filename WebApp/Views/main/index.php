@@ -55,6 +55,9 @@ include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/header.php
                         <a class="nav-link" href="#dataVerificationTab" data-bs-toggle="tab">Дані для перевірки</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#oldSim" data-bs-toggle="tab">Старі Sim</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#" data-bs-toggle="tab" disabled>Link</a>
                     </li>
                 </ul>
@@ -117,6 +120,39 @@ include($_SERVER['DOCUMENT_ROOT'] . '/WebApp/Views/layouts/components/header.php
                             </td>
                             <td>
                                 <?php echo $row->descr;?>
+                            </td>
+                            </tr>
+                            <?php }; ?>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row tab-pane" id="oldSim">
+                    <table class="table table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="col-1" scope="col">Інвертарний номер</th>
+                                <th class="col-2" scope="col">Номер Sim</th>
+                                <th class="col-6" scope="col">ICC Sim</th>
+                                <th class="col-2" scope="col">Корпус</th>
+                                <th class="col-6" scope="col">Замітка</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-group-divider table-body">
+                            <?php foreach($oldSim as $row) {?>
+                            <th scope="row">
+                                <?php echo $row->inventory_number;?>
+                            </th>
+                            <td>
+                                <?php echo $row->number;?>
+                            </td>
+                            <td>
+                                <?php echo $row->icc;?>
+                            </td>
+                            <td>
+                                <?php echo '<a href="/case/'.$row->body_id.'" class="link-underline-info"> Корпус ID: '.$row->body_id.'</a>';?>
+                            </td>
+                            <td>
+                                <?php echo $row->description;?>
                             </td>
                             </tr>
                             <?php }; ?>
